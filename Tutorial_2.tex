@@ -1,0 +1,131 @@
+\documentclass{unswmaths}
+\usepackage{unswshortcuts}
+\begin{document}
+\author{Adam J. Gray}
+\title{Tutorial 2}
+\subject{Measure Theory}
+\studentno{3329798}
+
+\unswtitle
+
+\section{}
+Consider a line $ \ell $ restricted to $ [0,1]^d $. This line has length at most $ \sqrt{d} $ and thus can be covered by $ N = \lceil \frac{\sqrt{d}}{\varepsilon} \rceil $ \emph{boxes} of size $ \varepsilon $. 
+
+Where $ d > 1 $, $ \ell $ is closed and hence Borel, and hence measurable and so $ \mu(\ell) $ is well defined.
+
+Then 
+\begin{align*}
+    \mu(\ell) &= \lim_{\varepsilon \lra 0} \varepsilon^d \times \lceil \frac{\sqrt{d}}{\varepsilon} \rceil \\
+        &= 0 & \text{ so long as } d > 1.
+\end{align*}
+This result extends to a line in $ \Rl^d $ by countable additivity. \qed
+\section{}
+
+\subsection{}
+
+\subsubsection{}
+
+\begin{align*}
+    A^c \Delta B^c &= (A^c \setminus B^c) \cup (B^c \setminus A^c) \\
+        &= (A^c \cap B) \cup (B^c \cap A) \\
+        &= (B \setminus A) \cup (A \setminus B) \\
+        &= A \Delta B
+\end{align*}
+\qed
+\subsubsection{}
+Suppose $ x \in A $ but $ x \not\in C $ then\\
+if $ x \in B $, $ x \not\in A \Delta B $ but $ X \in B \Delta C $ because $ x \in C $. \\
+If $ x \in B $ then $ x \in A \Delta B $.
+
+The argument is symmetric if $ x \in C $ but $ x \not\in A $. \\
+Thus $ A \Delta C \subseteq (A \Delta B) \cup ( B \Delta C) $. \qed
+
+\subsection{}
+Suppose $ B \in G $, then for all $ \varepsilon > 0 $ $ \exists $ $ B_\varepsilon \in \mathcal{A} $ s.t. $ \mu (B_\varepsilon \Delta B) < \varepsilon $.
+
+Because $ (B_\varepsilon \Delta B ) = ( B^c_\varepsilon \Delta B^c ) $ then $ \mu( B^c_\varepsilon \Delta B^c ) = \mu(B_\varepsilon \Delta B )  < \varepsilon $.
+Note that $ \varepsilon $ was arbitrary so it holds for all $ \varepsilon > 0 $ and thus $ B^c \in \mathcal{G} $. 
+
+Note 
+\begin{align*}
+    \left( B \in \mathcal{G} \Longrightarrow B^c \in \mathcal{G} \right) \Longrightarrow \left( B^C \in \mathcal{G} \Longrightarrow B \in \mathcal{G} \right)
+\end{align*}
+and thus the result follows. \qed
+
+\subsection{}
+Since $ A = \bigcup_{j=1} A_j $ and $ A_j $ is an increasing sequence
+\begin{align*}
+    A &= \dot{\bigcup_{j=0}} (A_j \Delta A_{j+1} ) & & \text{ where } A_0 = \emptyset
+\end{align*}
+and thus
+\begin{align*}
+    \mu(A) = \sum_{j=1} \mu(A_j \Delta A_{j+1}).
+\end{align*}
+Because $ \mu(A) $ must be finite there exists an $ N $ such that 
+\begin{align*}
+    \sum_{j=N} \mu(A_j \Delta A_{j+1}) < \varepsilon
+\end{align*}
+but 
+\begin{align*}
+    A_{n} \Delta A \subseteq \dot{\bigcup_{j=N}} A_j \Delta A_{j+1}
+\end{align*}
+and so
+\begin{align*}
+    \mu(A_N \Delta A) \leq \sum_{j=N} \mu(A_j \Delta A_{j+1}) < \varepsilon
+\end{align*}
+\qed
+\subsection{}
+The $ \varepsilon $ used in the above argument was arbitrary so it holds for  \emph{all} $ \varepsilon > 0 $. Then by definition $ A \in \mathcal{G} $. (because in each case $ B_\varepsilon = A_N $)
+\qed
+\subsection{}
+The following is clear
+\begin{itemize}
+    \item $ \mathcal{A} \subseteq \mathcal{G} $ 
+    \item $ \sigma(\mathcal{G}) = \mathcal{F} $
+    \item $ \mathcal{G} $ is a d-class (proved above)
+    \item $ \mathcal{G} $ is an algebra (and hence $ \pi$-class)
+\end{itemize}
+    thus $$ \mathcal{F} = \sigma(\mathcal{F}) = \sigma(\mathcal{G}) \underbrace{=}_{\text{by the monotone class theorem}} d(\mathcal{G}) = \mathcal{G}. $$
+    \qed
+\section{}
+\subsection{}
+Note that 
+\begin{itemize}
+    \item $ \emptyset, X \in \mathcal{A}_\mu $ because $ \emptyset, X \in \mathcal{A} $
+    \item If $ E , F \in \mathcal{A} $ such that $ E \subseteq A \subseteq F $ and $ \mu(F\setminus E) = 0 $ for some $ A \in \mathcal{A}_\mu $, then $ F^c \subseteq A^c \subseteq E^c $ and $ \mu(E^c \setminus F^c ) = 0 $ and so $ A^c \in \mathcal{A}_\mu $.
+    \item If $ E_i, F_i \in \mathcal{A} $ such that $ E_i \subseteq A_i \subseteq F_i $ and $ \mu(F_i \setminus E_i) $ for some countable collection $ \{ A_i \}_{i \in \mathbb{Z}} \subseteq \mathcal{A}_\mu $ then
+    
+    $$
+        \underbrace{\bigcup_{i \in \mathbb{Z}} E_i}_{\circledast} \subseteq \bigcup_{i \in \mathbb{Z}} A_i \subseteq \underbrace{\bigcup_{i \in \mathbb{Z}} F_i}_{\circledast \circledast}
+    $$
+    and because $ \mathcal{A} $ is a $ \sigma$-algebra, $ \circledast $ and $ \circledast \circledast \in \mathcal{A} $.
+    
+    Also
+    \begin{align*}
+        \mu\left(\bigcup_{i\in\mathbb{Z}} F_i \setminus \bigcup_{i\in\mathbb{Z}} F_i \right) &= \mu\left(\bigcup_{i\in\mathbb{Z}} F_i \cap \left(\bigcup_{i\in\mathbb{Z}} E_i\right)^c \right) \\
+            &= \mu\left(\bigcup_{i\in\mathbb{Z}} F_i \cap \left(\bigcap_{i\in\mathbb{Z}} E_i^c\right) \right) \\
+            &\leq \mu\left(\bigcup_{i\in\mathbb{Z}} \left(F_i \cap E_i^c \right) \right) \\
+            &= \mu\left(\bigcup_{i\in\mathbb{Z}} \left(F_i \setminus E_i^c \right) \right) \\
+            &\leq \sum_{i \in \mathbb{Z}} \mu( F_i \setminus E_i) \\
+            &= 0.
+    \end{align*}
+    Thus $ \mathcal{A}_\mu $ is closed with respect to countable unions and hence $ \mathcal{A}_\mu $ is a $\sigma$-algebra.
+\end{itemize}
+\qed
+\subsection{}
+Suppose $ \{A_i\}_{i \in \mathbb{Z}} \subseteq \mathcal{A}_u $ such that $ A_i \cap A_j = \emptyset $ when $ j \neq i $ with $ E_i, F_i \in \mathcal{A} $ such that $ E_i \subseteq A_i \subseteq F_i $ and $ \mu(F_i \setminus E_i) = 0 $.
+Then 
+\begin{align*}
+    \overline{\mu}\left( \bigcup_{i \in \mathbb{Z}} A_i \right) &= \mu\left( \bigcup_{i \in \mathbb{Z}} E_i \right) \\
+    &= \sum_{i \in \mathbb{Z}} \mu(E_i) & \text{ because the } E_i \text{ must be disjoint } \\
+    &= \sum_{i \in \mathbb{Z}} \overline{\mu} (A_i).
+\end{align*}
+This means that $ \overline{\mu} $ is countably additive and thus $ \overline{\mu} $ is a measure on $ \mathcal{A}_\mu $. \qed
+\subsection{}
+Suppose $ A \in \mathcal{A} $ with $ E \subseteq A \subseteq F $ such that $ \mu(F \setminus E) = 0 $ and $ E, F \in \mathcal{A} $. Then $\mu(E) \leq \mu(A) \leq \mu(F) $ but $ \mu(E) = \mu(F) $ and hence $ \mu(A) = \mu(E) =\overline{\mu}(A) $. \qed
+
+\subsection{}
+
+Suppose $ D \in 2^X $ and $ D \subseteq A \in \mathcal{A}_\mu $ such that $ \overline{\mu}(A) = 0 $. Then $ \emptyset \subseteq D \subseteq A $ and $ \mu( A \setminus \emptyset ) = \mu(A) - \mu(\emptyset) = 0 $. Thus $ D \in \mathcal{A}_\mu $ and so $ (X, \mathcal{A}_\mu, \overline{\mu}) $ is complete. \qed
+
+\end{document}
