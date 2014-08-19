@@ -46,10 +46,15 @@ This is the countable union of measurable sets so it is measurable and so $ f^2 
 \subsubsection{$ f/g $}
 
 \begin{align*}
-    \{ x : \frac{1}{g(x)} < t \} = \{ x : g(x) > \frac{1}{t} \}  = \bigcup_{q \in \mathbb{Q}, q > \frac{1}{t}} g^{-1}((q, \infty])
+    \{ x : \frac{1}{g(x)} < t \} = 
+    \begin{cases}
+	\{ x : \frac{1}{t} < g(x) < 0 \} & t < 0 \\
+	\{ x : -\infty < g(x) < 0 \} & t = 0\\
+	\{ x : -\infty < g(x) < 0 \} \cup \{ x : \frac{1}{t} < g(x) < 0 \} & b > 0
+    \end{cases}
 \end{align*}
 
-This is the countable union of measurable sets and so $ \frac{1}{g} $ is measurable, so $ \frac{f}{g} $ is measurable by the previous result.
+Which is clearly measurable so $ \frac{1}{g} $ is measurable and thus $ \frac{f}{g} $ is measurable.
 
 \subsubsection{$ f \wedge g $}
 
@@ -87,7 +92,7 @@ $\{ x : f(x) = g(x) \} = \{ x : f(x) < g(x) \} \cap \{ x : f(x) \leq g(x) \} $ a
 \subsubsection{ $ \sup_n f_n $ }
 
 $$
-    \{ \sup_n f_n < t \} = \bigcap_{n \in \Ntrl} \{f_n < t \}
+    \{ \sup_n f_n < t \} = \bigcap_{n \in \Ntrl} \{x : f_n(x) < t \}
 $$
 which is the countable intersection of measurable sets and therefore $ \sup_n f_n $ is measurable.
 
@@ -95,7 +100,7 @@ which is the countable intersection of measurable sets and therefore $ \sup_n f_
 
 Likewise 
 $$
-    \{ \inf_n f_n < t \} = \bigcup_{n \in \Ntrl} \{ f_n < t \} 
+    \{ \inf_n f_n < t \} = \bigcup_{n \in \Ntrl} \{ x : f_n(x) < t \} 
 $$
 and so by the same argument with unions the result follows. 
 
