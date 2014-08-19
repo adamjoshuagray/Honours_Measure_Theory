@@ -1,0 +1,190 @@
+\documentclass{unswmaths}
+\usepackage{unswshortcuts}
+\begin{document}
+\author{Adam J. Gray}
+\title{Tutorial 3}
+\subject{Measure Theory}
+\studentno{3329798}
+
+\newcommand{\llra}{\Leftrightarrow}
+
+\unswtitle
+
+\section{}
+\subsection{}
+\subsubsection{$ f + g $}
+
+\begin{align*}
+    f(x) + g(x) < t \llra f(x) < r \text{ and } g(x) < t + r
+\end{align*}
+for some $ r \in \mathbb{Q} $.
+
+Thus
+\begin{align*}
+    \{ x : f(x) + g(x) < t \} = \bigcup_{r \in \mathbb{Q}} \left[ f^{-1}([-\infty, r)) \cap g^{-1}([-\infty, t-r)) \right].
+\end{align*}
+This is the countable union of measurable sets and is thus measurable itself. So $ f + g $ is measurable.
+
+\subsubsection{$ \alpha f $}
+
+\begin{align*}
+    \{ x : \alpha f(x) < t \} = \bigcup_{q \in \mathbb{Q}, q < \alpha} \left[ f^{-1}([-\infty, \frac{t}{\alpha})) \right].
+\end{align*}
+This is the countable union of measurable sets and is thus measurable itself. So $ \alpha f $ is measurable.
+
+\subsubsection{$ fg $}
+
+\begin{align*}
+    fg = \frac{(f + g)^{2} - f^2 - g^2}{2}
+\end{align*}
+and
+\begin{align*}
+    \{ x : f^{2}(x) < t \} = \{ x : f(x) < \sqrt{t} \} = \bigcup_{q \in \mathbb{Q}, q < \sqrt{t}} f^{-1}([-\infty, q))
+\end{align*}
+This is the countable union of measurable sets so it is measurable and so $ f^2 $ is measurable. The measurability of $ fg $ follows from this and the last two results.
+
+\subsubsection{$ f/g $}
+
+\begin{align*}
+    \{ x : \frac{1}{g(x)} < t \} = \{ x : g(x) > \frac{1}{t} \}  = \bigcup_{q \in \mathbb{Q}, q > \frac{1}{t}} g^{-1}((q, \infty])
+\end{align*}
+
+This is the countable union of measurable sets and so $ \frac{1}{g} $ is measurable, so $ \frac{f}{g} $ is measurable by the previous result.
+
+\subsubsection{$ f \wedge g $}
+
+$$ f \wedge g = \frac{f + g + |f-g| }{2} $$
+and
+$$
+    \{ x : |f(x)| < t \} = \bigcup_{q \in \mathbb{Q}, q < t} f^{-1}([-\infty, q)) \cap f^{-1}((-q, \infty]) 
+$$
+which is the countable union of measurable sets so $ |f| $ is measurable. It follows that $ f \wedge g $ is measurable by previous results.
+
+\subsubsection{$ f \vee g $}
+
+$$ f \vee g = \frac{f + g - |f-g| }{2}. $$ The result then follows from previous results.
+
+\subsection{}
+
+\subsubsection{$\{ x : f(x) < g(x) \}$}
+
+$ \exists r : f(x) < r < g(x) $ for each $ x $.
+
+$$
+    \{ x : f(x) < g(x) \} = \bigcup f^{-1}([-\infty, r)) \cap g^{-1}((r, \infty])
+$$
+which is the countable union of measurable sets so $ \{ x : f(x) < g(x) \} $ is measurable.
+
+\subsubsection{$\{ x : f(x) \leq g(x) \}$}
+
+$$ \{ x : f(x) \leq g(x) \} = \{ x : g(x) < f(x) \}^{c} $$ and the result follows from above because the complement of a measurable set is measurable.
+
+\subsubsection{$\{ x : f(x) = g(x) \}$}
+
+$\{ x : f(x) = g(x) \} = \{ x : f(x) < g(x) \} \cap \{ x : f(x) \leq g(x) \} $ and the result follows from finite intersections.
+
+\subsection{}
+\subsubsection{ $ \sup_n f_n $ }
+
+$$
+    \{ \sup_n f_n < t \} = \bigcap_{n \in \Ntrl} \{f_n < t \}
+$$
+which is the countable intersection of measurable sets and therefore $ \sup_n f_n $ is measurable.
+
+\subsubsection{ $ \inf_n f_n $ }
+
+Likewise 
+$$
+    \{ \inf_n f_n < t \} = \bigcup_{n \in \Ntrl} \{ f_n < t \} 
+$$
+and so by the same argument with unions the result follows. 
+
+\subsubsection{$ \limsup_n f_n $}
+$$
+    \limsup_n f_n = \inf_k \sup_{n\geq k} f_n
+$$
+and the result follows immediatly by putting $ \sup_{n \geq k} f_n $ in the previous result and noting that $ \sup_{n \geq k} f_n$ 
+is measurable by the result for $ \sup$ .
+
+\subsubsection{$ \liminf_n f_n $}
+$$
+    \liminf_n f_n = \sup_k \inf_{n\geq k} f_n
+$$
+and using an essentially identical argument as in the previous result.
+\section{}
+
+\subsection{}
+\begin{align*}
+    F(t) &= \mu\left( \{ x : f(x) > t \} \right) \\
+    F(t+\varepsilon) &= \mu\left( \{ x : f(x) > t + \varepsilon \} \right)
+\end{align*}
+and as
+\begin{align*}
+    \{ x : f(x) > t + \varepsilon \} \subseteq \{ x : f(x) > t \}
+\end{align*}
+then
+\begin{align*}
+  \mu\left( \{ x : f(x) > t + \varepsilon \} \right) \leq \mu\left( \{ x : f(x) > t \} \right)
+\end{align*}
+and so $ F(t+\varepsilon) \leq F(t) $.
+
+Also as $ f $ is a bounded function there must exist an $ N $ such that $ f(x) \leq N $ $ \forall $ $ x $, which means
+$ \{ x : f(x) > N  \} = \emptyset $ and so $ F(t) = 0 $ $ \forall $ $ t > N $.
+
+Note that $ \lim_{t \lra 0} F(t) $ is finite if $ f $ is of finite support.
+
+\begin{align*}
+    \lim_{n \lra \infty} \int_0^n F(t)dt &= \int_0^N F(t) dt + \underbrace{\lim_{n \lra \infty} \int_N^n F(t) dt}_{=0} 
+	&\leq N F(0).
+\end{align*}
+
+Now as $ N $ and $ F(0) $ are finite then $ \lim_{n \lra \infty} \int_0^n F(t)dt < \infty $. 
+Now as $ F(t) $ is non-negative then $ G(n) = \int_0^n F(t) dt $ is an increasing function, bounded by $ NF(0) $ and thus,
+$ \lim_{n \lra \infty} G(n) $ exists.
+
+\subsection{}
+$$
+    L_n = \sum_{k = 1}^{N2^n} \frac{1}{2^n} F(\frac{k}{2^n})
+$$
+which is clearly the Lebesgue integral of
+$$
+    S_n(x) = \sum_{k=1}^{N2^n} \frac{1}{2^n} \chi_{\{ t : f(t) > \frac{k}{2^n} \}}(x).
+$$
+\subsection{}
+It is also clear that
+$$
+    S_n(x) = \frac{1}{2^n} \lfloor 2^nf(x) \rfloor
+$$
+and so $ \lim_{n \lra \infty} S_n(x) = f(x) $. Also by noting that 
+$$
+    \frac{1}{2} \lfloor 2^{n+1} f(x) \rfloor \geq \lfloor 2^n f(x) \rfloor 
+$$
+we have that $ S_{n+1}(x) \geq S_n(x) $.
+Thus 
+$$
+    \lim_{n \lra \infty} \int S_n d\mu = \int f d\mu.
+$$
+by the monotone convergence theorem.
+Now as $L_n$ was also the lower Riemann integral of $F$ and as $ n \lra \infty $, $ L_n \lra \int_0^N F(x) dx = \int_0^\infty F(x) dx $ then 
+$$
+    \int f d\mu = \int_0^\infty F(x) dx.
+$$
+
+\section{}
+
+Let 
+$$
+    f_n(x) = \chi_{A_n}(x) f(x) + n \chi_{A_n^c}(x)
+$$
+then
+$$
+    \int f d \mu = \int_{A_n} f d\mu + \int_{A_n^c} f d\mu > \int f_n d\mu + n \mu(A_n^c).
+$$
+
+Then as clearly $ f_n \leq f $ and $ \lim_{n \lra \infty} f_{n}(x) = f(x) $ and $ f \in \mathcal{L}^1(\mu) $,by the dominated convergence theorem 
+$$
+    \lim_{n \lra \infty} \int f_n d \mu = \int f d \mu
+$$
+which implies that $ \lim_{n\lra \infty} n \mu( A_n^c) = 0 $
+
+\end{document}
