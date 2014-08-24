@@ -35,7 +35,7 @@ for some $ K $ because $ f $ is bounded. Now because $ S $ is bounded in $ \math
     &=  \lim_{n \lra\infty} \sum_{k=1}^{N_n} (\beta_k - \alpha_k) \lambda(C_k) \text{ because } \phi_n \text{ is a simple function }\\
     &= 0 \text{ because } f \text{ is Riemann integrable }.
 \end{align*}
-This means that $ \lim_{n\lra\infty} \phi_n = 0 $ and hence $ \lim_{n\lra\infty} \ell_n = f = \lim_{n\lra\infty} \ell_n $.
+This means that $ \lim_{n\lra\infty} \phi_n = 0 $, $ \lambda $ a.e. and hence $ \lim_{n\lra\infty} \ell_n = f = \lim_{n\lra\infty} \ell_n $, $ \lambda $ a.e.
 
 We now show that the Riemann integral and the Lebesgue integral coincide. 
 We have that 
@@ -49,6 +49,26 @@ for some $ M $ because $ f $ is bounded. By the same argument as above $ M \chi_
 \end{align*}
 
 \subsection{}
+Let $ N = \{ x : \lim_{n\lra\infty}\ell_n(x) \neq \lim_{n\lra\infty}u_n(x) \} $ and
+let $ X = S / (\partial S \cup N ) $. 
+We wish to show that for all $ x \in X $ and $ \varepsilon > 0 $ there exists a $ \delta > 0 $ such that
+$$ \sup\{ f(x_1) - f(x_2) : ||x-x_1|| < \delta, ||x-x_2|| < \delta \} < \varepsilon. $$
+Fix $ x $ and $ \varepsilon $. As $ \lim_{n\lra\infty} (u_n - \ell_n) = 0 $ there exists an $ L $ such that $ n > L $ implies $ u_n - \ell_n < \varepsilon $
+which is to say that 
+\begin{align*}
+    \sum_{k=1}^{N_n} (\beta_k - \alpha_k) \chi_{C_k} < \varepsilon
+\end{align*}
+which implies that
+\begin{align*}
+    (\beta_k - \alpha_k) < \varepsilon
+\end{align*}
+where $ x \in C_k $. Therefore chosing $ \delta = \inf\{ ||y-x|| : y \not\in C_k \} $ guarentees
+$ \{ y : ||y - x || < \delta \} \subseteq C_k $ and hence $$ \sup\{ f(x_1) - f(x_2) : ||x-x_1|| < \delta, ||x-x_2|| < \delta \} < \varepsilon. $$
+We now need to prove that $ \delta > 0 $. To do this we show that there exits a partitioning of $ S $ such that $$ \underbrace{\inf\{ || x_1 - x || : x_1 \not\in C_k \} > 0}_{\circledast}$$ for all $ x \in X $ so long as $ x \in C_k / (\partial C_k ) $. We then show that there always exists a partitioning of $ X $ such that $ x \not\in \partial C_k $ and the result will follow. 
 
-
-end{document}
+A partitioning of $ S $ such that $ \circledast $ holds for all $ n $ is given by
+\begin{align}
+    C_k = \Big( \frac{k(b_1 - a_1)}{q^n}, \frac{(k+1)(b_1 - a_1)}{q^n}\Big] \times \cdots \times \Big( \frac{k(b_d-a_d)}{q^n}, \frac{(k+1)(b_d-a_d)}{q^n} \Big]
+\end{align}
+where $ q = 2 $. Now suppose that $ x \in \partial C_k $ then the $ \circledast $ would still hold when $ q = 3 $ but $ x \not\in \partial C_k $. 
+\end{document}
