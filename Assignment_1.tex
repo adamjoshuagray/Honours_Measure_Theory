@@ -71,4 +71,29 @@ A partitioning of $ S $ such that $ \circledast $ holds for all $ n $ is given b
     C_k = \Big( \frac{k(b_1 - a_1)}{q^n}, \frac{(k+1)(b_1 - a_1)}{q^n}\Big] \times \cdots \times \Big( \frac{k(b_d-a_d)}{q^n}, \frac{(k+1)(b_d-a_d)}{q^n} \Big]
 \end{align}
 where $ q = 2 $. Now suppose that $ x \in \partial C_k $ then the $ \circledast $ would still hold when $ q = 3 $ but $ x \not\in \partial C_k $. 
+
+\section{}
+\subsection{}
+Note that for $ E \in \mathcal{B} $
+\begin{align}
+    \left(f^{-1}(E)\right)^c &= \left(\{ x \in X : f(x) \in E \}\right)^c \\
+    &= \{ x \in X : f(x) \not\in E \} \\
+    &= \{ x \in X : f(x) \in E^c \} \\
+    &= f^{-1}(E^c).
+\end{align}
+So if $ A \in \mathcal{A} $ then $ A^c \in \mathcal{A} $.
+
+Also note that for $ E_1, E_2, \ldots $ 
+we have that
+\begin{align*}
+    \bigcup_{i} f^{-1}(E_i) &= \bigcup_{i} \{ x \in X : f(x) \in E_i \} \\
+        &= \left\{ x \in X : f(x) \in \bigcup_i E_i \right\} \\
+        &= f^{-1}\left(\bigcup_i E_i \right).
+\end{align*}
+which means that if $ F_1, F_2, \ldots $ is some countable collection of sets in $ \mathcal{A} $ then their union is also in $ \mathcal{A} $.
+
+Finnaly note that $ f^{-1}(Y) = X $. Therefore $ \mathcal{A} := \{ f^{-1}(B) : B \in \mathcal{B} \} $ is a $ \sigma$-algebra. 
+
+Clearly if we remove any set from $ \mathcal{A} $ then $ f $ would not be $ \mathcal{A} $ measurable because there would exist a set $ B \in \mathcal{B} $ such that $ f^{-1}(B) \not\in \mathcal{A} $. 
+
 \end{document}
