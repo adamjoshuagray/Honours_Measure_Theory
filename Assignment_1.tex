@@ -1,0 +1,54 @@
+\documentclass{unswmaths}
+\usepackage{unswshortcuts}
+\begin{document}
+\author{Adam J. Gray}
+\title{Assignment 1}
+\subject{Measure Theory}
+\studentno{3329798}
+
+\newcommand{\llra}{\Leftrightarrow}
+
+\unswtitle
+
+\section{}
+\subsection{}
+Define
+\begin{align*}
+    \ell_n &= \sum_{k=1}^{N_n} \alpha_k \chi_{C_k} \\
+    u_n &= \sum_{k=1}^{N_n} \beta_k \chi_{C_k} 
+\end{align*}
+where $ \alpha_k := \inf\{ f(x) : x \in C_k \} $ and $ \beta_k := \sup\{ f(x) : x \in C_k \} $ and $ C_k \in \mathcal{P}_n $ where $ \mathcal{P} $ is defined in the question.
+We wish to show that $$ \lim_{n\lra\infty} | \ell - f | = 0 = \lim_{n\lra\infty} | f - u_n | $$  $ \lambda $ a.e.
+
+It is obvious that $ \ell \leq f \leq u_n $ and so proving $$ \lim_{n\lra\infty} |u_n - \ell_n| = 0 $$ is sufficient.
+Define $$ \phi_n := u_n - \ell_n = \sum_{k=1}^{N_n} (\beta_k - \alpha_k) \chi_{C_k}. $$
+Firstly we must show $ \lim_{n\lra\infty} \phi_n $ exists $ \lambda $ a.e. This follows from the fact that $ \ell_n $ ( $u_n$ ) is a non-decreasing (non-increasing) sequence which is bounded above (below) by $ f $ which is also bounded. 
+
+We now wish to establish that $ \lim_{n\lra\infty} \phi_n = 0 $. Note that 
+$$
+    \phi_n \leq \sup\{ f(x)-f(y) : x,y \in S \} \leq K\chi_{S}
+$$
+for some $ K $ because $ f $ is bounded. Now because $ S $ is bounded in $ \mathbb{R}^d $ we have that $ K\chi_S \in \mathcal{L}^1(S) $. The dominated convergence theorem therefore allows us to write  
+\begin{align*}
+    \int \lim_{n\lra\infty} \underbrace{\sum_{k=1}^{N_n}(\beta_k - \alpha_k) \chi_{C_k}}_{=\phi_n} d\lambda &=
+        \lim_{n \lra\infty} \int \sum_{k=1}^{N_n} (\beta_k - \alpha_k) \chi_{C_k} d\lambda \\
+    &=  \lim_{n \lra\infty} \sum_{k=1}^{N_n} (\beta_k - \alpha_k) \lambda(C_k) \text{ because } \phi_n \text{ is a simple function }\\
+    &= 0 \text{ because } f \text{ is Riemann integrable }.
+\end{align*}
+This means that $ \lim_{n\lra\infty} \phi_n = 0 $ and hence $ \lim_{n\lra\infty} \ell_n = f = \lim_{n\lra\infty} \ell_n $.
+
+We now show that the Riemann integral and the Lebesgue integral coincide. 
+We have that 
+$$
+    |\ell_n| \leq M \chi_{S} 
+$$
+for some $ M $ because $ f $ is bounded. By the same argument as above $ M \chi_{S} \in \mathcal{L}^1(S) $. $ \lim_{n\lra\infty} \ell_n $ exists and equals $ f $ (this was established above), so by the dominated convergence theorem,
+\begin{align*}
+    \underbrace{\lim_{n\lra\infty} \int \ell_n d\lambda}_{\int_{S} f(x) dx} &= \int \underbrace{\lim_{n\lra\infty} \ell_n}_{\circledast} d\lambda \\
+    &= \underbrace{\int f d\lambda}_{\text{Lebesgue integral}} \\
+\end{align*}
+
+\subsection{}
+
+
+end{document}
