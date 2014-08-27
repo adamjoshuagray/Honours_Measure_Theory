@@ -1,5 +1,6 @@
 \documentclass{unswmaths}
 \usepackage{unswshortcuts}
+\usepackage{dsfont}
 \begin{document}
 \author{Adam J. Gray}
 \title{Assignment 1}
@@ -96,4 +97,88 @@ Finnaly note that $ f^{-1}(Y) = X $. Therefore $ \mathcal{A} := \{ f^{-1}(B) : B
 
 Clearly if we remove any set from $ \mathcal{A} $ then $ f $ would not be $ \mathcal{A} $ measurable because there would exist a set $ B \in \mathcal{B} $ such that $ f^{-1}(B) \not\in \mathcal{A} $. 
 
+\subsection{}
+Define
+\begin{align*}
+    g : Y \lra Z \\
+    g := a_n\mathds{1}_{B_n}
+\end{align*}
+
+Now suppose $ E \in \mathcal{C} $ and note that
+\begin{align*}
+    h^{-1}E &= f \circ h^{-1} E \\
+        &= f \bigcup_{n \in I} \underbrace{h^{-1} a_n}_{\circledast}
+\end{align*}
+where $ I = \{ n : a_n \in E \}  $.
+
+$ \circledast $ is because if $ E \in \mathcal{C} $ then if $ U := \{ a_n  : n \in I, I \subseteq \mathbb{Z} \} \subseteq E $ then 
+$$ h^{-1} E = h^{-1} \left(U \cup \left(E \setminus U \right)\right) = h^{-1} \bigcup_{n\in I} a_n = \bigcup_{n \in I} h^{-1} a_n. $$
+
+Now because $ h $ is measurable then 
+$$
+    D := \bigcup_{n \in I} h^{-1}a_n
+$$
+is the \emph{countable} union of measurable sets, hence measurable.
+Then we just have to argue that
+$$
+    fD \in Y.
+$$
+This is clear because $ D = f^{-1} E $ for some $ E \in \mathcal{B} $ and therefore $ fD = ff^{-1}E = E \in \mathcal{B} $.
+
+
+\section{}
+\subsection{}
+$ i \Longrightarrow ii $:
+
+Obvious. (By definition)
+
+$ ii \Longrightarrow iii $:
+
+\begin{align*}
+    & \liminf_{n}\chi_{A_n}(x) = 1 \\
+    &\Longrightarrow  \lim_{N\lra\infty} \inf_{n \geq N} \chi_{A_n}(x) = 1\\
+    &\Longrightarrow  \chi_{A_n}(x) = 0 \text{ for finitely many } n \\ 
+    &\Longrightarrow x \not\in A_n \text{ for finitely many } n 
+\end{align*}
+ 
+$ iii \Longrightarrow i $:
+
+\begin{align*}
+    & x \not\in A_n \text{ for finitely many } n \\
+    & \Longrightarrow \exists N \text{ such that } n \geq N \Longrightarrow x \in A_{n} \\
+    & \Longrightarrow n\geq N \Longrightarrow x \in \bigcap_{k\geq n} A_n \\
+    & \Longrightarrow x \in \bigcup_{n} \bigcap_{k\geq n} A_{k} \\
+\end{align*}
+
+\subsection{}
+
+\begin{align*}
+    x \in \limsup_{n} A_n \\
+    \limsup_{n} \chi_{A_n}(x) = 1\\
+    x \in A_n \text{ for infinitely many } n 
+\end{align*}
+Clearly the third condition here is less restrictive than the third contion in 3.1
+
+\section{}
+\subsection{}
+Clearly
+\begin{align*}
+    \emptyset \in \mathcal{A} \Longrightarrow \emptyset \in \mathcal{A}_{c} \\
+\end{align*}
+also if we let $ A \in \mathcal{A}_{c} $
+\begin{align*}
+    A^{c} &:= A^{c} \cap C
+\end{align*}
+and $ A^{c} \cap C \in \mathcal{A}_{c} $ because $ A^{c} \in \mathcal{A} $.
+
+Now let $ \{ A_n \}_n \subseteq \mathcal{A}_{c} $ where $ A_n = A'_n \cap C $ with $ A'_n \in \mathcal{A} $ then 
+\begin{align*}
+    \bigcup_{n} A_n &= \bigcup_{n} (A'_n \cap C) \\
+        &= \bigcup_{n} (A'_n \cap C) \\
+        &= C \cap \underbrace{\bigcup_{n} (A'_n)}_{\in \mathcal{A}}
+\end{align*}
+and thus 
+$$
+    \bigcup_{n} A_n \in \mathcal{A}_{c}.
+$$
 \end{document}
