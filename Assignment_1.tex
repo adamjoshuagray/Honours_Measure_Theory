@@ -101,31 +101,39 @@ Clearly if we remove any set from $ \mathcal{A} $ then $ f $ would not be $ \mat
 Define
 \begin{align*}
     g : Y \lra Z \\
-    g := a_n\mathds{1}_{B_n}
+    g := \sum_{n} a_n \chi_{B_n}
 \end{align*}
+where $ B_n = f(h^{-1}(a_n)) $.
+We just need show that $ g $ is measurable and that $ h = g \circ f $.
+Firstly we show that $ B_n$ are measurable.
+Note that as $ h $ is measurable then $ h^{-1}(a_n) \in \mathcal{A} $. Now as $ h^{-1}(a_n) \in \mathcal{A} $ then there exists a set $ B_n \in \mathcal{B} $ such that
+$ f^{-1} B_n = h^{-1}(a_n) $ because of the definition of $ \mathcal{A} $ and thus $ B_n = f(h^{-1}(a_n)) $ is measurable. 
 
-Now suppose $ E \in \mathcal{C} $ and note that
+We now show that $ B_n $ are disjoint and hence $ h = g \circ f $. Suppse $ B_n \cap B_m \neq \emptyset $ for $ n \neq m $ then 
+$$ f^{-1} (B_n \cap B_m) = (f^{-1} B_n) \cap (f^{-1} B_m) = h^{-1}(a_n) \cap h^{-1}(a_m) = h^{-1}( \{a_n\} \cap \{a_m\} ) = h^{-1} \emptyset \neq \emptyset $$
+which is clearly a contradiction so the $ B_n $ are disjoint. It is easy to see then that $ g(f(x)) = a_n $ if $ h(x) = a_n $ and thus $ h = g \circ f $.
+
+We now show that $ g $ is measurable. Firstly note that $ g^{-1} = f \circ h^{-1} $.
+
+Suppose $ E \in \mathcal{C} $ and note that
 \begin{align*}
-    h^{-1}E &= f \circ h^{-1} E \\
-        &= f \bigcup_{n \in I} \underbrace{h^{-1} a_n}_{\circledast}
+g^{-1}E &= f \circ h^{-1} E \\
+&= f \bigcup_{n \in I} \underbrace{h^{-1} a_n}_{\circledast}
 \end{align*}
-where $ I = \{ n : a_n \in E \}  $.
-
-$ \circledast $ is because if $ E \in \mathcal{C} $ then if $ U := \{ a_n  : n \in I, I \subseteq \mathbb{Z} \} \subseteq E $ then 
+where $ I = \{ n : a_n \in E \} $.
+$ \circledast $ is because if $ E \in \mathcal{C} $ and $ U := \{ a_n : n \in I, I \subseteq \mathbb{Z} \} \subseteq E $ then
 $$ h^{-1} E = h^{-1} \left(U \cup \left(E \setminus U \right)\right) = h^{-1} \bigcup_{n\in I} a_n = \bigcup_{n \in I} h^{-1} a_n. $$
-
-Now because $ h $ is measurable then 
+Now because $ h $ is measurable then
 $$
-    D := \bigcup_{n \in I} h^{-1}a_n
+D := \bigcup_{n \in I} h^{-1}a_n
 $$
 is the \emph{countable} union of measurable sets, hence measurable.
 Then we just have to argue that
 $$
-    fD \in Y.
+fD \in \mathcal{B}.
 $$
 This is clear because $ D = f^{-1} E $ for some $ E \in \mathcal{B} $ and therefore $ fD = ff^{-1}E = E \in \mathcal{B} $.
-
-
+Thus $ g $ is measurable.
 \section{}
 \subsection{}
 \begin{align}
