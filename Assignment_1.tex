@@ -68,9 +68,9 @@ $ \{ y : ||y - x || < \delta \} \subseteq C_k $ and hence $$ \sup\{ f(x_1) - f(x
 We now need to prove that $ \delta > 0 $. To do this we show that there exits a partitioning of $ S $ such that $$ \underbrace{\inf\{ || x_1 - x || : x_1 \not\in C_k \} > 0}_{\circledast}$$ for all $ x \in X $ so long as $ x \in C_k / (\partial C_k ) $. We then show that there always exists a partitioning of $ X $ such that $ x \not\in \partial C_k $ and the result will follow. 
 
 A partitioning of $ S $ such that $ \circledast $ holds for all $ n $ is given by
-\begin{align}
+\begin{align*}
     C_k = \Big( \frac{k(b_1 - a_1)}{q^n}, \frac{(k+1)(b_1 - a_1)}{q^n}\Big] \times \cdots \times \Big( \frac{k(b_d-a_d)}{q^n}, \frac{(k+1)(b_d-a_d)}{q^n} \Big]
-\end{align}
+\end{align*}
 where $ q = 2 $. Now suppose that $ x \in \partial C_k $ then the $ \circledast $ would still hold when $ q = 3 $ but $ x \not\in \partial C_k $. 
 
 \section{}
@@ -128,28 +128,15 @@ This is clear because $ D = f^{-1} E $ for some $ E \in \mathcal{B} $ and theref
 
 \section{}
 \subsection{}
-$ i \Longrightarrow ii $:
-
-Obvious. (By definition)
-
-$ ii \Longrightarrow iii $:
-
-\begin{align*}
-    & \liminf_{n}\chi_{A_n}(x) = 1 \\
-    &\Longrightarrow  \lim_{N\lra\infty} \inf_{n \geq N} \chi_{A_n}(x) = 1\\
-    &\Longrightarrow  \chi_{A_n}(x) = 0 \text{ for finitely many } n \\ 
-    &\Longrightarrow x \not\in A_n \text{ for finitely many } n 
-\end{align*}
- 
-$ iii \Longrightarrow i $:
-
-\begin{align*}
-    & x \not\in A_n \text{ for finitely many } n \\
-    & \Longrightarrow \exists N \text{ such that } n \geq N \Longrightarrow x \in A_{n} \\
-    & \Longrightarrow n\geq N \Longrightarrow x \in \bigcap_{k\geq n} A_n \\
-    & \Longrightarrow x \in \bigcup_{n} \bigcap_{k\geq n} A_{k} \\
-\end{align*}
-
+\begin{align}
+    & x \in \liminf_n A_n \llra x \in \bigcup_n \bigcap_{k\geq n} A_k \\
+    & \llra \exists N \text{ such that } x \in \bigcap_{k\geq N} A_k \\
+    & \llra \exists N \text{ such that } k \geq N \Longrightarrow x \in A_k \\
+    & \llra \exists N \text{ such that } k \geq N \Longrightarrow \chi_{A_k}(x) = 1 \\
+    & \llra \lim_{N \lra \infty} \inf_{n \geq N} \chi_{A_n}(x) = 1 \\
+    & \llra \liminf_{n} \chi_{A_n}(x) = 1
+\end{align}
+Note that (3) is completely the same as saying that $ x \in A_k $ for all but finitely many $ A_k $ ( $ x \not\in A_k $ for at most $ N $ $ A_k $ ).
 \subsection{}
 
 \begin{align*}
@@ -157,8 +144,7 @@ $ iii \Longrightarrow i $:
     \limsup_{n} \chi_{A_n}(x) = 1\\
     x \in A_n \text{ for infinitely many } n 
 \end{align*}
-Clearly the third condition here is less restrictive than the third contion in 3.1
-
+Clearly the third condition here is less restrictive than the third contion in 3.1 and so $ \liminf_n A_n \subseteq \limsup_n A_n $.
 \section{}
 \subsection{}
 Clearly
@@ -181,4 +167,87 @@ and thus
 $$
     \bigcup_{n} A_n \in \mathcal{A}_{c}.
 $$
+\subsection{}
+Let $ \{ A_n \}_n \subseteq \mathcal{A} $ be a sequence of sets such that $ A_n \subseteq A_{n+1} $, $ A_n \subseteq B $ for all $ n $ and 
+$$ \lim_{n \lra \infty} \mu(A_n) = \sup_{n} \{ \mu(A) : A \subseteq B \}. $$
+
+Firstly we show such a sequence exists.
+
+Suppose such a sequence did not exist. Then for all sequences $ \{E_n\}_n \subseteq \mathcal{A} $ there exists a $ \varepsilon > 0 $ such that
+$$ \lim_{n\lra\infty} \mu(E_n) \leq \sup_n \{ \mu(A) : A \subseteq B \} - \varepsilon. $$ 
+Now because the $ \sup $ must exist because this is a finite measure space there must exist an $ A' \in \mathcal{A} $ such that
+$$ \mu(A') - \sup\{ \mu(A) : A \subseteq B \} < \frac{\varepsilon}{2}. $$ Then we can construct a sequence $ \{ E_n \cup A' \}_n \subseteq \mathcal{A} $ such that
+$$
+    \lim_{n\lra\infty} \mu(E_n \cup A') >  \sup_{n} \{ \mu(A) : A \subseteq B \} - \varepsilon
+$$
+which is a contradiction.
+
+Returning to the sequence $ \{ A_n \}_n $ note that 
+\begin{align*}
+    \bigcup_{n} A_n \in \mathcal{A} 
+\end{align*} 
+and that
+\begin{align*}
+    \lim_{n\lra\infty} \mu(A_n) = \mu\left( \bigcup_n A_n \right)    
+\end{align*}
+and hence there exists an $ A_0 := \cup_{n} A_n $ such that $ \mu(A_0) = \mu_{*}(B) $.
+
+Using a symetric argument to that above we can argue that there exists a sequence
+$ \{ A_n \}_n \subseteq \mathcal{A} $ such that $ A_{n+1} \subseteq A_n $, $ A_n \supseteq B $ for all $ n $ and that 
+$$ \lim_{n \lra \infty} \mu(A_n) = \inf\{ \mu(A) : A \supseteq B \}. $$
+Now note that
+$$
+    \bigcap_{n} A_n \in \mathcal{A}
+$$
+and so
+$$
+    \lim_{n \lra \infty} \mu(A_n) = \mu\left( \bigcap_n A_n \right)
+$$
+and thus there exists $ A_1 \:= \cap_n A_n $ such that $ \mu(A_1) = \mu^*(B) $.
+\subsection{}
+$ A_1 $ and $ A_2 $ must be $\mathcal{M}( \mu*) $ measurable which means that for $ C $ we must have
+\begin{align*}
+    \mu^*(C) &= \mu^*(C \cap A_1) + \mu^*(C \setminus A_1 ) 
+\end{align*}
+and
+\begin{align*}
+    \mu^*(C) &= \mu^*(C \cap A_2) + \mu^*(C \setminus A_2) 
+\end{align*}
+It is not hard to see that
+
+\begin{align*}
+   \mu^*(C \setminus A_1) \leq \mu(C_1 \setminus A_1).
+\end{align*}
+Clearly $ (C_1 \setminus A_1) \supseteq (C \setminus A_1) $ and $ (C_1 \setminus A_1) \in \mathcal{A} $ so
+$$ \inf\{ \mu(E) : E \supseteq (C \setminus A_1), E \in \mathcal{A} \} $$
+thus $ \mu^*(C \setminus A_1) \leq \mu(C_1 \setminus A_1) $. By the same reasoning $ \mu^*(C \setminus A_2) \leq \mu(C_1 \setminus A_2) $. 
+
+We can then see that
+$$
+    \mu(C_1) = \mu^*(C) \leq \mu^*(C\cap A_1) + \mu(C_1 \setminus A_1 )
+$$
+and so
+$$
+    \mu(C_1 \cap A_1) \leq \mu^*(C \cap A_1)
+$$
+and likewise
+$$
+    \mu(C_1 \cap A_2) \leq \mu^*(C \cap A_2)
+$$
+The reverse inequality holds because $ (C_1 \cap A_1) \in \mathcal{A} $ and 
+$$ \inf\{ \mu(E) : E \supseteq (C \cap A_1), E \in \mathcal{A} \} \leq \mu(C_1 \cap A_1). $$
+Likewise for $ A_2 $. So $ \mu^*(C \cap A_1) = \mu( C_1 \cap A_1 )$. Now because $ A_1\cap C = A_2\cap C $ the  it is clear to see
+that $ \mu^*(C \cap A_1) = \mu^*( C \cap A_2) $ and hence $ \mu(C_1 \cap A_1) = \mu(C_1 \cap A_2) $.
+\subsection{}
+
+In the arguments above we show that for $ A \in \mathcal{A} $ we have $ \mu^*(A \cap C) = \mu(A \cap C_1) $ and $ C_1 $ was arbitrary, so long as $ \mu(C_1) = \mu^*(C) $. In 4.2 we showed at least one such $ C_1 $ must exist and so $ \mu_C $ is well defined and $ \mu_C = \mu^* $. 
+\subsection{}
+Let $ \{ A_{C_n} \}_n \subseteq \mathcal{A}_C $ such that the $ A_{C_n} $ are all mutually disjoint. Then
+\begin{align*}
+    \mu_C\left( \bigcup_n A_{C_n} \right) &= \mu\left( \left( \bigcup_n A_{C_n} \right) \cap C_1 \right) \\
+        &=  \mu\left( \bigcup_n (A_{C_n} \cap C_1) \right) \\
+        &= \sum_n \mu(A_{C_n} \cap C_1) \text{ because the } (A_{C_n} \cap C) \text{ must be mutually disjoint }\\
+        &= \sum_n \mu_C ( A_{C_n})
+\end{align*}
+and so $ \mu_C $ is a measure. 
 \end{document}
