@@ -63,7 +63,7 @@ which implies that
 \begin{align*}
     (\beta_k - \alpha_k) < \varepsilon
 \end{align*}
-where $ x \in C_k $. Therefore chosing $ \delta = \inf\{ ||y-x|| : y \not\in C_k \} $ guarentees
+where $ x \in C_k $. Therefore choosing $ \delta = \inf\{ ||y-x|| : y \not\in C_k \} $ guarantees
 $ \{ y : ||y - x || < \delta \} \subseteq C_k $ and hence $$ \sup\{ f(x_1) - f(x_2) : ||x-x_1|| < \delta, ||x-x_2|| < \delta \} < \varepsilon. $$
 We now need to prove that $ \delta > 0 $. To do this we show that there exits a partitioning of $ S $ such that $$ \underbrace{\inf\{ || x_1 - x || : x_1 \not\in C_k \} > 0}_{\circledast}$$ for all $ x \in X $ so long as $ x \in C_k / (\partial C_k ) $. We then show that there always exists a partitioning of $ X $ such that $ x \not\in \partial C_k $ and the result will follow. 
 
@@ -71,7 +71,7 @@ A partitioning of $ S $ such that $ \circledast $ holds for all $ n $ is given b
 \begin{align*}
     C_k = \Big( \frac{k(b_1 - a_1)}{q^n}, \frac{(k+1)(b_1 - a_1)}{q^n}\Big] \times \cdots \times \Big( \frac{k(b_d-a_d)}{q^n}, \frac{(k+1)(b_d-a_d)}{q^n} \Big]
 \end{align*}
-where $ q = 2 $. Now suppose that $ x \in \partial C_k $ then the $ \circledast $ would still hold when $ q = 3 $ but $ x \not\in \partial C_k $. 
+where $ q = 2 $. Now suppose that $ x \in \partial C_k $ then the $ \circledast $ would still hold when $ q = 3 $ but $ x \not\in \partial C_k $. If $ x \in \partial C_k $ even after choosing $ q = 3 $ that means that it is now on another boundary of the partition rectangle. It is easy to see that simply choosing higher prime values for $ q $ will eventually mean that $ x \not\in \partial C $.
 
 \section{}
 \subsection{}
@@ -93,7 +93,7 @@ we have that
 \end{align*}
 which means that if $ F_1, F_2, \ldots $ is some countable collection of sets in $ \mathcal{A} $ then their union is also in $ \mathcal{A} $.
 
-Finnaly note that $ f^{-1}(Y) = X $. Therefore $ \mathcal{A} := \{ f^{-1}(B) : B \in \mathcal{B} \} $ is a $ \sigma$-algebra. 
+Finally note that $ f^{-1}(Y) = X $. Therefore $ \mathcal{A} := \{ f^{-1}(B) : B \in \mathcal{B} \} $ is a $ \sigma$-algebra. 
 
 Clearly if we remove any set from $ \mathcal{A} $ then $ f $ would not be $ \mathcal{A} $ measurable because there would exist a set $ B \in \mathcal{B} $ such that $ f^{-1}(B) \not\in \mathcal{A} $. 
 
@@ -109,7 +109,7 @@ Firstly we show that $ B_n$ are measurable.
 Note that as $ h $ is measurable then $ h^{-1}(a_n) \in \mathcal{A} $. Now as $ h^{-1}(a_n) \in \mathcal{A} $ then there exists a set $ B_n \in \mathcal{B} $ such that
 $ f^{-1} B_n = h^{-1}(a_n) $ because of the definition of $ \mathcal{A} $ and thus $ B_n = f(h^{-1}(a_n)) $ is measurable. 
 
-We now show that $ B_n $ are disjoint and hence $ h = g \circ f $. Suppse $ B_n \cap B_m \neq \emptyset $ for $ n \neq m $ then 
+We now show that $ B_n $ are disjoint and hence $ h = g \circ f $. Suppose $ B_n \cap B_m \neq \emptyset $ for $ n \neq m $ then 
 $$ f^{-1} (B_n \cap B_m) = (f^{-1} B_n) \cap (f^{-1} B_m) = h^{-1}(a_n) \cap h^{-1}(a_m) = h^{-1}( \{a_n\} \cap \{a_m\} ) = h^{-1} \emptyset \neq \emptyset $$
 which is clearly a contradiction so the $ B_n $ are disjoint. It is easy to see then that $ g(f(x)) = a_n $ if $ h(x) = a_n $ and thus $ h = g \circ f $.
 
@@ -152,7 +152,7 @@ Note that (3) is completely the same as saying that $ x \in A_k $ for all but fi
     \limsup_{n} \chi_{A_n}(x) = 1\\
     x \in A_n \text{ for infinitely many } n 
 \end{align*}
-Clearly the third condition here is less restrictive than the third contion in 3.1 and so $ \liminf_n A_n \subseteq \limsup_n A_n $.
+Clearly the third condition here is less restrictive than the third condition in 3.1 and so $ \liminf_n A_n \subseteq \limsup_n A_n $.
 \section{}
 \subsection{}
 Clearly
@@ -200,7 +200,7 @@ and that
 \end{align*}
 and hence there exists an $ A_0 := \cup_{n} A_n $ such that $ \mu(A_0) = \mu_{*}(B) $.
 
-Using a symetric argument to that above we can argue that there exists a sequence
+Using a symmetric argument to that above we can argue that there exists a sequence
 $ \{ A_n \}_n \subseteq \mathcal{A} $ such that $ A_{n+1} \subseteq A_n $, $ A_n \supseteq B $ for all $ n $ and that 
 $$ \lim_{n \lra \infty} \mu(A_n) = \inf\{ \mu(A) : A \supseteq B \}. $$
 Now note that
