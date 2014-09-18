@@ -1,0 +1,387 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     16090,        377]
+NotebookOptionsPosition[     15779,        361]
+NotebookOutlinePosition[     16115,        376]
+CellTagsIndexPosition[     16072,        373]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1.14", "\[Rule]", "1.15"}], ",", 
+     RowBox[{"1.12", "\[Rule]", "1.25"}], ",", 
+     RowBox[{"1.23", "\[Rule]", "1.25"}], ",", 
+     RowBox[{"1.25", "\[Rule]", "1.26"}], ",", 
+     RowBox[{"1.25", "\[Rule]", "1.27"}], ",", 
+     RowBox[{"1.12", "\[Rule]", "1.28"}], ",", 
+     RowBox[{"1.28", "->", "1.32"}], ",", 
+     RowBox[{"1.32", "\[Rule]", "1.33"}], ",", 
+     RowBox[{"1.31", "\[Rule]", "1.33"}], ",", 
+     RowBox[{"2.3", "\[Rule]", "2.5"}], ",", 
+     RowBox[{"2.11", "->", "2.12"}], ",", 
+     RowBox[{"2.6", "\[Rule]", "2.12"}], ",", 
+     RowBox[{"2.6", "->", "2.15"}], ",", 
+     RowBox[{"2.14", "\[Rule]", "2.15"}], ",", 
+     RowBox[{"1.12", "\[Rule]", "2.15"}], ",", 
+     RowBox[{"2.14", "\[Rule]", "2.18"}], ",", 
+     RowBox[{"2.18", "\[Rule]", "2.20"}], ",", 
+     RowBox[{"2.6", "\[Rule]", "2.22"}], ",", 
+     RowBox[{"2.24", "\[Rule]", "2.28"}], ",", 
+     RowBox[{"2.3", "\[Rule]", "3.4"}], ",", 
+     RowBox[{"3.4", "\[Rule]", "3.5"}], ",", 
+     RowBox[{"1.12", "\[Rule]", "3.5"}], ",", 
+     RowBox[{"2.6", "\[Rule]", "3.5"}], ",", 
+     RowBox[{"1.23", "\[Rule]", "3.5"}], ",", 
+     RowBox[{"3.5", "\[Rule]", "3.6"}], ",", 
+     RowBox[{"2.15", "\[Rule]", "3.6"}], ",", 
+     RowBox[{"1.25", "\[Rule]", "3.6"}], ",", 
+     RowBox[{"3.6", "\[Rule]", "3.10"}], ",", 
+     RowBox[{"2.11", "\[Rule]", "3.10"}], ",", 
+     RowBox[{"2.15", "\[Rule]", "3.10"}], ",", 
+     RowBox[{"2.6", "\[Rule]", "3.10"}], ",", 
+     RowBox[{"4.5", "\[Rule]", "4.6"}], ",", 
+     RowBox[{"4.6", "\[Rule]", "4.8"}], ",", 
+     RowBox[{"2.18", "->", "4.11"}], ",", 
+     RowBox[{"2.15", "\[Rule]", "4.15"}], ",", 
+     RowBox[{"2.11", "\[Rule]", "4.15"}], ",", 
+     RowBox[{"1.23", "\[Rule]", "5.9"}], ",", 
+     RowBox[{"5.6", "\[Rule]", "5.9"}], ",", 
+     RowBox[{"5.12", "->", "5.13"}], ",", 
+     RowBox[{"3.10", "\[Rule]", "5.13"}], ",", 
+     RowBox[{"2.18", "\[Rule]", "5.15"}], ",", 
+     RowBox[{"4.11", "\[Rule]", "5.15"}], ",", 
+     RowBox[{"2.20", "\[Rule]", "5.15"}], ",", 
+     RowBox[{"2.20", "->", "5.17"}], ",", 
+     RowBox[{"2.18", "\[Rule]", "5.17"}], ",", 
+     RowBox[{"2.24", "\[Rule]", "5.17"}], ",", 
+     RowBox[{"5.18", "\[Rule]", "5.19"}], ",", 
+     RowBox[{"6.8", "\[Rule]", "6.11"}], ",", 
+     RowBox[{"6.10", "\[Rule]", "6.11"}], ",", 
+     RowBox[{"6.6", "\[Rule]", "6.13"}], ",", 
+     RowBox[{"6.11", "\[Rule]", "6.14"}], ",", 
+     RowBox[{"6.13", "\[Rule]", "6.14"}], ",", 
+     RowBox[{"6.15", "\[Rule]", "6.17"}], ",", 
+     RowBox[{"6.16", "\[Rule]", "6.17"}]}], "}"}], ",", " ", 
+   RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", " ", 
+   RowBox[{"VertexLabeling", "\[Rule]", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.620067896007408*^9, 3.620067965090334*^9}, {
+   3.62006806691429*^9, 3.620068095765655*^9}, {3.620068204139758*^9, 
+   3.6200683151995077`*^9}, {3.620068365142215*^9, 3.620068395887044*^9}, {
+   3.620068549962605*^9, 3.62006855611454*^9}, {3.620068600730256*^9, 
+   3.6200686864442368`*^9}, {3.620068717649716*^9, 3.620068886020195*^9}, {
+   3.620068977501526*^9, 3.6200691391842422`*^9}, {3.6200692592261677`*^9, 
+   3.620069282113351*^9}, {3.6200693342900877`*^9, 3.620069376954163*^9}, 
+   3.62006940874736*^9, {3.620069454169945*^9, 3.620069594982459*^9}, {
+   3.620069748920333*^9, 3.620069803190003*^9}, {3.62006985894038*^9, 
+   3.6200698817570457`*^9}, {3.620069980046316*^9, 3.620070089845867*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1:eJw9kn0w0wEYx3deFvJuvw2bl41tKnm5Xjhd9nSnkt5wWegucvISpyPZ6EVI
+dUdLLild6RSdkre2oZTnWt7u4igZlZp0Y6U/dCvaxlWb88dzz33uvvf88fk+
+zITjkUeNSCSS/7/5v1XphRvk01zIrPu4e1cnGw3MBp3ig55zNSHFkj5bmC1R
+FLz67IBLSnqGs8VquOMnkAXmU3CLjl/Uds0Eeq0HMzbwqZj3dk3oIQtTIAXO
+nra1dsCAu8dMu/3MILdD4dV80w6Zbto9WSIbENcFW8yessQZ76BHLRutIP3x
+ZrKJwgizj9yaXxy3gIVv4qZq1a+utPL6unmdGYTHL7JdtFNdfnGlNcOvtbxP
+pOqfUwJXvJSePTDcM8fbltDR7L/THRPZap9YcxrkHZoOl047Y0XS+QecHgpQ
+rbvHs2wYeFZcKUhKsYeATH4vecwJRzr65aJqAjiNvhr1eypmJJsmVjQxAM6U
+cNvkBKpGSRTiIRN2Y4w42ZLAk/OumeZcDwh77bXJtozAp+IRMz7VDkCSy5eq
+GNheZRy9YysHhKm13pFnCNTxXdzWD3CBJaPJ+gsJ/M2pUmrOmUDiIPnHlyt0
+FFQvxGlTLSHH75URydgRO41vlbAK7ED6XfKxlE3D+9tz5hgNFMhsiOLTuM7Y
+uIY84vbGDi7SDf0YmFjpy8BOoEyb0PPkqlHJ3ngW7POVs9ZdtcfblVM6sY4G
+d0di1ddPOWJj557JGyHzvMG5BrXIhorLnnnkrzXusgECY0uGWlsjaCCyr3+S
+Q2LiWFTZpGQrFV4OfFE5Sl0xJbEWLstZ0Dyhyjr6zQHzI2NU7p6eIBoVBmhT
+CWQ3L5WLFv/wDgTZfqUL12LY8v3P2TZ6Dl3myhcp0e/zPRD6nwuLItS8ICfD
+P/4KFR4W1i7x3vXt57UvcDHwnhXRUmcOB5+l6fMzfK8a6WkTGI5VLtUHe6IP
+cUGfD9PE1+YueiIWFLtMD7mu+FLgS9GJFOaKLwN7rPj6C47ZepU=
+    "], {
+     {RGBColor[0.5, 0., 0.], Arrowheads[{{0.01495746245976709, 0.7}}], 
+      ArrowBox[{1, 2}], ArrowBox[{3, 4}], ArrowBox[{3, 8}], ArrowBox[{3, 17}],
+       ArrowBox[{3, 25}], ArrowBox[{4, 6}], ArrowBox[{4, 7}], 
+      ArrowBox[{4, 26}], ArrowBox[{5, 4}], ArrowBox[{5, 25}], 
+      ArrowBox[{5, 33}], ArrowBox[{8, 9}], ArrowBox[{9, 10}], 
+      ArrowBox[{11, 10}], ArrowBox[{12, 13}], ArrowBox[{12, 24}], 
+      ArrowBox[{14, 15}], ArrowBox[{14, 27}], ArrowBox[{14, 32}], 
+      ArrowBox[{16, 15}], ArrowBox[{16, 17}], ArrowBox[{16, 21}], 
+      ArrowBox[{16, 25}], ArrowBox[{16, 27}], ArrowBox[{17, 26}], 
+      ArrowBox[{17, 27}], ArrowBox[{17, 32}], ArrowBox[{18, 17}], 
+      ArrowBox[{18, 19}], ArrowBox[{19, 20}], ArrowBox[{19, 31}], 
+      ArrowBox[{19, 37}], ArrowBox[{19, 38}], ArrowBox[{20, 37}], 
+      ArrowBox[{20, 38}], ArrowBox[{22, 23}], ArrowBox[{22, 38}], 
+      ArrowBox[{24, 25}], ArrowBox[{25, 26}], ArrowBox[{26, 27}], 
+      ArrowBox[{27, 36}], ArrowBox[{28, 29}], ArrowBox[{29, 30}], 
+      ArrowBox[{31, 37}], ArrowBox[{34, 33}], ArrowBox[{35, 36}], 
+      ArrowBox[{39, 40}], ArrowBox[{41, 42}], ArrowBox[{42, 46}], 
+      ArrowBox[{43, 42}], ArrowBox[{44, 45}], ArrowBox[{45, 46}], 
+      ArrowBox[{47, 48}], ArrowBox[{49, 48}]}, {InsetBox[
+       FrameBox["1.14`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["1.15`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["1.12`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["1.25`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["1.23`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["1.26`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6], InsetBox[
+       FrameBox["1.27`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 7], InsetBox[
+       FrameBox["1.28`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 8], InsetBox[
+       FrameBox["1.32`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 9], InsetBox[
+       FrameBox["1.33`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 10], InsetBox[
+       FrameBox["1.31`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 11], InsetBox[
+       FrameBox["2.3`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 12], InsetBox[
+       FrameBox["2.5`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 13], InsetBox[
+       FrameBox["2.11`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 14], InsetBox[
+       FrameBox["2.12`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 15], InsetBox[
+       FrameBox["2.6`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 16], InsetBox[
+       FrameBox["2.15`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 17], InsetBox[
+       FrameBox["2.14`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 18], InsetBox[
+       FrameBox["2.18`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 19], InsetBox[
+       FrameBox["2.2`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 20], InsetBox[
+       FrameBox["2.22`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 21], InsetBox[
+       FrameBox["2.24`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 22], InsetBox[
+       FrameBox["2.28`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 23], InsetBox[
+       FrameBox["3.4`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 24], InsetBox[
+       FrameBox["3.5`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 25], InsetBox[
+       FrameBox["3.6`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 26], InsetBox[
+       FrameBox["3.1`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 27], InsetBox[
+       FrameBox["4.5`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 28], InsetBox[
+       FrameBox["4.6`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 29], InsetBox[
+       FrameBox["4.8`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 30], InsetBox[
+       FrameBox["4.11`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 31], InsetBox[
+       FrameBox["4.15`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 32], InsetBox[
+       FrameBox["5.9`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 33], InsetBox[
+       FrameBox["5.6`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 34], InsetBox[
+       FrameBox["5.12`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 35], InsetBox[
+       FrameBox["5.13`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 36], InsetBox[
+       FrameBox["5.15`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 37], InsetBox[
+       FrameBox["5.17`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 38], InsetBox[
+       FrameBox["5.18`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 39], InsetBox[
+       FrameBox["5.19`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 40], InsetBox[
+       FrameBox["6.8`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 41], InsetBox[
+       FrameBox["6.11`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 42], InsetBox[
+       FrameBox["6.1`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 43], InsetBox[
+       FrameBox["6.6`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 44], InsetBox[
+       FrameBox["6.13`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 45], InsetBox[
+       FrameBox["6.14`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 46], InsetBox[
+       FrameBox["6.15`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 47], InsetBox[
+       FrameBox["6.17`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 48], InsetBox[
+       FrameBox["6.16`",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 49]}}],
+   Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJw9kn0w0wEYx3deFvJuvw2bl41tKnm5Xjhd9nSnkt5wWegucvISpyPZ6EVI
+dUdLLild6RSdkre2oZTnWt7u4igZlZp0Y6U/dCvaxlWb88dzz33uvvf88fk+
+zITjkUeNSCSS/7/5v1XphRvk01zIrPu4e1cnGw3MBp3ig55zNSHFkj5bmC1R
+FLz67IBLSnqGs8VquOMnkAXmU3CLjl/Uds0Eeq0HMzbwqZj3dk3oIQtTIAXO
+nra1dsCAu8dMu/3MILdD4dV80w6Zbto9WSIbENcFW8yessQZ76BHLRutIP3x
+ZrKJwgizj9yaXxy3gIVv4qZq1a+utPL6unmdGYTHL7JdtFNdfnGlNcOvtbxP
+pOqfUwJXvJSePTDcM8fbltDR7L/THRPZap9YcxrkHZoOl047Y0XS+QecHgpQ
+rbvHs2wYeFZcKUhKsYeATH4vecwJRzr65aJqAjiNvhr1eypmJJsmVjQxAM6U
+cNvkBKpGSRTiIRN2Y4w42ZLAk/OumeZcDwh77bXJtozAp+IRMz7VDkCSy5eq
+GNheZRy9YysHhKm13pFnCNTxXdzWD3CBJaPJ+gsJ/M2pUmrOmUDiIPnHlyt0
+FFQvxGlTLSHH75URydgRO41vlbAK7ED6XfKxlE3D+9tz5hgNFMhsiOLTuM7Y
+uIY84vbGDi7SDf0YmFjpy8BOoEyb0PPkqlHJ3ngW7POVs9ZdtcfblVM6sY4G
+d0di1ddPOWJj557JGyHzvMG5BrXIhorLnnnkrzXusgECY0uGWlsjaCCyr3+S
+Q2LiWFTZpGQrFV4OfFE5Sl0xJbEWLstZ0Dyhyjr6zQHzI2NU7p6eIBoVBmhT
+CWQ3L5WLFv/wDgTZfqUL12LY8v3P2TZ6Dl3myhcp0e/zPRD6nwuLItS8ICfD
+P/4KFR4W1i7x3vXt57UvcDHwnhXRUmcOB5+l6fMzfK8a6WkTGI5VLtUHe6IP
+cUGfD9PE1+YueiIWFLtMD7mu+FLgS9GJFOaKLwN7rPj6C47ZepU=
+     "]]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  ImageSize->{1854., Automatic},
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{
+  3.620068096447565*^9, 3.620068262670299*^9, 3.620068315809654*^9, 
+   3.620068407956561*^9, 3.620068827968321*^9, 3.620068966114719*^9, 
+   3.620069004559156*^9, 3.620069152623485*^9, {3.620069591603554*^9, 
+   3.620069596068881*^9}, 3.620069803752743*^9, 3.620070090445397*^9}]
+}, Open  ]]
+},
+WindowSize->{1920, 1025},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 3494, 70, 99, "Input"],
+Cell[4076, 94, 11687, 264, 2112, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
