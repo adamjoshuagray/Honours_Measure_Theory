@@ -1,0 +1,100 @@
+\documentclass{unswmaths}
+\usepackage{unswshortcuts}
+\usepackage{dsfont}
+\begin{document}
+\author{Adam J. Gray}
+\title{Assignment 2}
+\subject{Measure Theory}
+\studentno{3329798}
+
+\newcommand{\llra}{\Leftrightarrow}
+
+\unswtitle
+
+\section{}
+\section{}
+\subsection{}
+Suppose $ u $ and $ \nu $ are $\sigma$-finite \emph{positive} measures on $ (\Omega, \mathcal{F}) $. Then suppose that $ \mu << \nu $ and $ \nu << \mu $.
+Then for $ A \in \mathcal{F} $ we have that $ \mu(a) = 0 \Rightarrow \nu(A) = 0 $ and $ \nu(A) = 0 \Rightarrow \mu(A) $. That is to say that $ \nu(A) =0 \Leftrightarrow \mu(A) = 0 $. That is to say that $ \nu $ and $ \mu $ have the same null sets. This argument is symmetric so it is clear that the reverse implication also holds.
+
+We now wish to show that there is an $ \mathcal{F}$-measurable function $ g $ that satisfies $ 0 < g(\omega) < +\infty $ at each $ \omega \in \Omega $ and is such that $ \nu(A) = \int_Agd\mu $ for all $ A \in \mathcal{F} $.
+
+\section{}
+\subsection{}
+Firstly note that the definition of the characteristic function is
+\begin{align}
+	\hat{\mu}_X(u) = \mathbb{E}[\exp(i\langle X, u \rangle)]
+\end{align}
+and so for the random vector $ cX $ with $ c \in \Rl $ we have that
+\begin{align}
+	\hat{\mu}_{cX}(u) &= \mathbb{E}[ \exp(i \langle cX, u \rangle) ] \\
+		 &= \mathbb{E}[ \exp(i \langle X, cu \rangle) ] \\
+		 &= \hat{\mu}_{X}(cu)
+\end{align}
+\subsection{}
+\subsection{}
+Let $ d = 1 $ and let $ \mu $ have the  Lebesgue density,
+\begin{align}
+	f(x) = \frac{C}{(1+x^2) \log(e + x^2)}, \ \ \ \ x \in \Rl.
+\end{align}
+We wish to show that $ E[X] $ is not defined but $ \hat{\mu}(u) $ is differentiable at $ 0 $. Firstly we show that $ E[X] $ is not defined. 
+
+\begin{align}
+	E[X] &= \int_{-\infty}^\infty \frac{Cx}{(1+x^2) \log(e + x^2)} dx \\
+		&= \int_{-\infty}^\infty \frac{C}{(x^{-1} + x)\log(e + x^2)}
+\end{align}
+note that
+\begin{align}
+	\frac{C}{(x^{-1} + x)\log(e + x^2)} \sim \frac{C}{2x\log(x)}
+\end{align}
+and 
+\begin{align}
+	\int_{a}^\infty \frac{C}{2x\log(x)}dx, \ \text{and} \ \int_{-\infty}^b \frac{C}{2x\log(x)}dx
+\end{align}
+do not converge so $ \mathbb{E}[X] $ does not exist.
+
+We now just have to show that $ \hat{mu}(u) $ is differentiable at $ u = 0 $. 
+
+\begin{align}
+	\hat{\mu}(u) = \int_{-\infty}^\infty \frac{e^{iux}C}{(1+x^2)\log(e+x^2)} dx
+\end{align}
+and
+\begin{align}
+	\frac{d}{du}\hat{\mu}(u) \Big|_{u = 0} = \int_{-\infty}^\infty \frac{ixe^{iux}C}{(1+x^2)\log(e+x^2)} dx
+\end{align}
+
+\section{}
+Let $\mu$ be the binomial distribution with $ n $ trials and probability of success $ p $, that is $ \mu = \operatorname{Bin}(n,p) $, and let $ \nu $ be the Poisson distribution with mean $ \lambda > 0 $. 
+\subsection{}
+We wish to verify that $ \hat{\mu}(u) = (1 - p + pe^{iu})^n $. 
+Because the binomial distribution is just the convolution of identical independent Bernoulli distributions then we just have to verify that $ (1 - p + pe^{iu} $ is the characteristic function for $Bernoulli(p)$.
+
+If $ \nu $ is the Bernoulli measure and $ X $ has law $ \nu $ then 
+\begin{align}
+	\hat{\nu}(u) &= \mathbb{E}[ \exp(iuX)]
+		&= \sum_{k \in \{ 0, 1\}} e^{iuk} \nu_{X}(k) \\
+		&=  pe^{iu} + (1 - p).
+\end{align}
+Then by repeated application of the convolution theorem we get that
+$ \hat{\mu}(u) = (1 - p + pe^{iu})^n $.
+
+\subsection{}
+We wish to verify that $ \hat{\nu}(u) = \exp(\lambda(e^{iu} - 1)) $. 
+The probability mass function of the Poisson distribution is 
+\begin{align}
+	\frac{\lambda^k}{k!} e^{-\lambda} 
+\end{align}
+and thus
+\begin{align}
+	\mathbb{E}[ \exp(iuX) ] &= \sum_{k=0}^\infty \frac{\lambda^k}{k!} e^{-\lambda} e^{iuk} \\
+		&= e^{-\lambda}\sum_{k=0}^\infty \frac{\lambda^k}{k!} (e^{iu})^k \\
+		&= e^{-\lambda}\sum_{k=0}^\infty \frac{(\lambda e^{iu})^k}{k!} \\
+		&= e^{-\lambda} e^{\lambda e^{iu}} \\
+		&= e^{\lambda( e^{iu} - 1)}
+\end{align}
+
+\subsection{}
+
+
+
+\end{document}
