@@ -114,4 +114,37 @@ and
 		&= \sum_{k=0}^\infty f(k) \frac{\lambda^k}{k!} e^{-\lambda} \\
 \end{align}
 
+\section{}
+\subsection{}
+We wish to show that $ \mathbb{P}(B_n) = 1/2 $ for every $ n \geq 1 $.
+Note that 
+\begin{align}
+	B_n = \bigcup_{k=0}^{2^{n-1} - 1} \Big[ \frac{2k}{2^n}, \frac{2k+1}{2^n} \Big)
+\end{align}
+and thus
+\begin{align}
+	\mathbb{P}(B_n) &= \mathbb{P}\left( \bigcup_{k=0}^{2^{n-1} - 1} \Big[ \frac{2k}{2^n}, \frac{2k+1}{2^n} \Big) \right) \\
+		&= \sum_{k=0}^{2^{n-1}-1} \mathbb{P}\left( \Big[ \frac{2k}{2^n}, \frac{2k+1}{2^n} \Big) \right) \\
+		&= \sum_{k=0}^{2^{n-1}-1} \frac{1}{2^n} \\
+		&= 2^{n-1} \frac{1}{2^n} \\
+		&= \frac{1}{2}.
+\end{align}
+\subsection{}
+We now wish to show that the sequence of events $ B_n $ form an infinite sequence of independent events. 
+
+Take a finite subset $ J \subset \Ntrl $ with $ |J| = m $ and $ \max J = r $ then
+\begin{align}
+	\mathbb{P}\left( \bigcap_{n \in J} B_n \right) &= \mathbb{P}\left( \bigcap_{n \in J} \bigcup_{k=0}^{2^{n-1} - 1} \Big[ \frac{2k}{2^n}, \frac{2k+1}{2^n} \Big) \right) \\
+	&= \mathbb{P} \left( \bigcup_{k=0}^{2^{r-m} - 1} \Big[ \frac{2k}{2^r}, \frac{2k+1}{2^r} \Big)\right) \\
+	&=  \sum_{k=0}^{2^{r-m} - 1} \mathbb{P} \left( \Big[ \frac{2k}{2^n}, \frac{2k+1}{2^n} \Big) \right) \\
+	&= 2^{r-m} \frac{1}{2^r} \\
+	&= \frac{1}{2^m} \\
+	&= \prod_{n \in J} \mathbb{P}\left( B_n \right)
+\end{align}
+and so the sequence of events $ B_n $ form an infinite sequence of independent events.
+\subsection{}
+
+
+
+
 \end{document}
