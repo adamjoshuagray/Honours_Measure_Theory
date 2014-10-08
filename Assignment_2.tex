@@ -217,23 +217,31 @@ and thus
 \subsection{}
 
 We wish to show that if $ p_n $ is a sequence in $ [0,1] $ such that $ p_n \downarrow 0 $ and $ np_n \lra \lambda $ then $ \mu_n \lra \nu $ in the weak sense where $ \mu_n = \operatorname{Bin}(n, p_n) $.
+Let $ f \in C_b $ then
+\begin{align}
+	\lim_{n\lra \infty} \sum_{k=0}^{n} f(k) {n\choose k} p_n^k(1-p_n)^{n-k}
+		&= \lim_{n\lra \infty} \sum_{k=0}^\infty \chi_{k \leq n} \cdot f(k) {n\choose k} p_n^k(1-p_n)^{n-k} \\
+		&= \sum_{k=0}^\infty \lim_{n\lra \infty} \chi_{k \leq n} \cdot f(k) {n\choose k} p_n^k(1-p_n)^{n-k}.
+\end{align}
+The interchange of the order of the limit and the sum is justified by the uniform convergence of the sum. To see this let $ M = \sup_{k \in \Ntrl^0} f(k) $ (which exists because $ f \in C_b $) and then note that 
+\begin{align}
+	\sum_{k=0}^\infty \chi_{k \leq n} \cdot f(k) {n\choose k} p_n^k(1-p_n)^{n-k} &\leq \sum_{k=0}^\infty \chi_{k \leq n} \cdot M {n\choose k} p_n^k(1-p_n)^{n-k} \\
+	&= M < \infty
+\end{align}
+and so by the Weierstrass M test the series converges uniformly. 
 
-Let $ f \in C_b $ then 
+Now as $ np_n \lra \lambda $ or $ p_n \lra \frac{\lambda}{n} $ we get
 \begin{align}
-	E[f(X_n)] &= \sum_{k=0}^n f(k) \mu_n(k) \\
-		&= \sum_{k=0}^n f(k) \mu_n(k) \\
-		&= \sum_{k=0}^n f(k) {n\choose k} p_n^k(1-p_n)^{n-k}
+	\sum_{k=0}^\infty \lim_{n\lra \infty} \chi_{k \leq n} \cdot f(k) {n\choose k} p_n^k(1-p_n)^{n-k} &= \sum_{k=0}^\infty \lim_{n\lra \infty} \chi_{k \leq n} \cdot f(k) \frac{n!}{k!(n-k)!} p_n^k(1-p_n)^{n} (1-p_n)^{-k} \\
+	&= \sum_{k=0}^\infty \lim_{n\lra \infty} \chi_{k \leq n} \cdot f(k) \frac{n^k + O(n^{k-1})}{k!} p_n^k(1-p_n)^{n} (1-p_n)^{-k} \\
+	&= \sum_{k=0}^\infty  f(k)\lim_{n\lra \infty} \frac{n^k + O(n^{k-1})}{k!} p_n^k(1-p_n)^{n} \underbrace{(1-p_n)^{-k}}_{\lra 0} \\
+	&= \sum_{k=0}^\infty  f(k)\lim_{n\lra \infty} \underbrace{\frac{n^k + O(n^{k-1})}{k!} p_n^k}_{\lra \frac{\lambda^k}{k!}}(1-p_n)^{n} \\
+	&= \sum_{k=0}^\infty \frac{\lambda^k}{k!} f(k)\lim_{n\lra \infty} \underbrace{(1-\frac{\lambda}{n})^{n}}_{\lra e^{-\lambda}} \\
+	&= \sum_{k=0}^\infty \frac{\lambda^k}{k!} e^{-\lambda} f(k).
 \end{align}
-then
-\begin{align}
-	\lim_{n\lra\infty} E[f(X_n)] &= \lim_{n \lra \infty}\sum_{k=0}^n f(k) {n\choose k} p_n^k(1-p_n)^{n-k}
-\end{align}
-and
-\begin{align}
-	\mathbb{E}[f(Y)] &= f(x) \nu(x) \\
-		&= \sum_{k=0}^\infty f(k) \frac{\lambda^k}{k!} e^{-\lambda} \\
-\end{align}
-
+This proves the weak convergence.
+\subsection{}
+This argument holds whether one takes the integral (sum) or not. So $ \mu_n(\{k\}) \lra \nu(\{k\}) $ for all $ k \in \Ntrl^0$.
 \section{}
 \subsection{}
 We wish to show that $ \mathbb{P}(B_n) = 1/2 $ for every $ n \geq 1 $.
