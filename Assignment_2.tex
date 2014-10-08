@@ -2,6 +2,7 @@
 \usepackage{unswshortcuts}
 \usepackage{dsfont}
 \usepackage{fullpage}
+\usepackage{mdframed}
 \begin{document}
 \author{Adam J. Gray}
 \title{Assignment 2}
@@ -33,6 +34,61 @@ and so for the random vector $ cX $ with $ c \in \Rl $ we have that
 		 &= \hat{\mu}_{X}(cu)
 \end{align}
 \subsection{}
+By definition we have that
+\begin{align}
+	\hat{\mu}(\mathbf{u}) = \int \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) d\mathbb{P}_{X}(\mathbf{x}).
+\end{align}
+We can say that
+\begin{align}
+	\frac{d^\alpha \hat{\mu}(\mathbf{u})}{d \mathbf{u}^\alpha} = \frac{d^\alpha}{d \mathbf{u}^\alpha} \int \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) d\mathbb{P}_{X}(\mathbf{x}).
+\end{align}
+We wish to justify taking this derivative through the integral sign. To do this we use an extension of corollary 2.28 (2) from the notes.
+\clearpage
+\begin{mdframed}
+\textbf{Claim}
+
+If the partial derivative 
+\begin{align}
+	\frac{\partial^\alpha}{\partial\mathbf{u}^\alpha} f(\mathbf{x}, \mathbf{u})
+\end{align}
+exists for all $ (\mathbf{x}, \mathbf{u}) \in X \times [a, b]^d $ and if there is a function $ g \in L^{1}(\mu) $ such that
+\begin{align}
+	\Big| \frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} f(\mathbf{x}, \mathbf{u}) \Big| \leq g
+\end{align}
+for every $ \mathbf{x} \in X $ and $ \mathbf{u} \in (a,b)^d $ then
+\begin{align}
+	\frac{d^\alpha}{d\mathbf{u}^\alpha} \int f(\mathbf{x}, \mathbf{u}) d\mu(\mathbf{x}) = \int \frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} f(\mathbf{x}, \mathbf{u}) d\mu(\mathbf{x}) \ \ \ \ \ \text{ for } \mathbf{u} \in (a,b)^d.
+\end{align}
+The proof follows from induction on the dimension of $ \mathbf{x} $ and $ \mathbf{u} $ and the order of the derivative. The base case is specifically the statement of  corollary 2.28 (2) from the notes.
+\end{mdframed}
+
+We have that 
+\begin{align}
+	\frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) = i^{|\alpha|}\prod_{k=1}^d x_k^{\alpha_k}  \exp(i \langle \mathbf{x}, \mathbf{u} \rangle )
+\end{align}
+and that
+\begin{align}
+	\left| \frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) \right| \leq  \underbrace{\prod_{k=1}^d \left| x_k \right|
+^{\alpha_k}}_{\circledast}.
+\end{align}
+Now because 
+\begin{align}
+	\mathbf{E}\left( \prod_{k=1}^d |X_k|^{\alpha_k}\right) = \int \prod_{k=1}^d \left| x_k \right|
+^{\alpha_k} d\mathbb{P}_{X}(\mathbf{x}) < \infty 
+\end{align}
+then $ \circledast \in L^1(\mathbb{P}_X) $
+and so we can apply our claim (the DCT) to get
+\begin{align}
+	\frac{\partial^\alpha \hat{\mu}(\mathbf{u})}{\partial \mathbf{u}^\alpha} &=  \int \frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) d\mathbb{P}_{X}(\mathbf{x}) \\
+	&= \int i^{|\alpha|} \prod_{k=1}^d x_k^{\alpha_k} \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) d\mathbb{P}_{X}(\mathbf{x}) \\
+	&= i^{|\alpha|} \int  \prod_{k=1}^d x_k^{\alpha_k} \exp(i \langle \mathbf{x}, \mathbf{u} \rangle ) d\mathbb{P}_{X}(\mathbf{x})
+\end{align}
+and so
+\begin{align}
+	\frac{\partial^\alpha \hat{\mu}(\mathbf{u})}{\partial \mathbf{u}^\alpha} \Big|_{\mathbf{u} = \mathbf{0}} &= i^{|\alpha|} \int  \prod_{k=1}^d x_k^{\alpha_k} \exp(i \langle \mathbf{x}, \mathbf{0} \rangle ) d\mathbb{P}_{X}(\mathbf{x}) \\
+	&= i^{|\alpha|} \int  \prod_{k=1}^d x_k^{\alpha_k} d\mathbb{P}_{X}(\mathbf{x}) \\
+	&= i^{|\alpha|} \mathbb{E}(X^\alpha)
+\end{align}
 \subsection{}
 Let $ d = 1 $ and let $ \mu $ have the  Lebesgue density,
 \begin{align}
