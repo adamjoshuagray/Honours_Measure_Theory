@@ -144,7 +144,25 @@ Take a finite subset $ J \subset \Ntrl $ with $ |J| = m $ and $ \max J = r $ the
 and so the sequence of events $ B_n $ form an infinite sequence of independent events.
 \subsection{}
 
+We wish to show / argue that the probability that a randomly sampled number $ \omega $ will have the sequence $ 5825 $ occur infinitely often in its decimal expansion is 1.
 
+We use the Borel-Cantelli lemma. Ignoring possible overlaps (on the $5$s) we can see that we can break any decimal expansion of $ \omega $ up into blocks of $ 4 $ digits. 
 
+Then by we can define $ E_i $ as the probability of obtaining $ 5285 $ in the i-th block possition. By the same argument as above these events are independent.
 
+The for any $ i $ we have that $ \mathbb{P}(E_i) = \frac{1}{10000} $ (the same argument as above applied to a decimal expansion). Then clearly
+\begin{align}
+  \mathbb{P}( E_i ) = \infty.
+\end{align}
+
+By the Borel-Cantelli lemma this implies
+\begin{align}
+  \mathbb{P}( \limsup_n( E_n ) = 1.
+\end{align}
+
+Now 
+\begin{align}
+  \limsup_n( E_n ) = \bigcap_{n=1}^\infty \bigcup_{j=n}^\infty E_j 
+\end{align}
+can be intuatively read as $ E_j $ happens infinitely often. Which is to say that $ 5285 $ occurs \emph{blockwise} in the expansion of $ \omega $ infinitely often. Clearly as allowing for overlaps allows for more configurations then the probability is $ 1 $ (it can be no more). 
 \end{document}
