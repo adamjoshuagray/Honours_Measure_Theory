@@ -21,6 +21,68 @@ Then for $ A \in \mathcal{F} $ we have that $ \mu(a) = 0 \Rightarrow \nu(A) = 0 
 
 We now wish to show that there is an $ \mathcal{F}$-measurable function $ g $ that satisfies $ 0 < g(\omega) < +\infty $ at each $ \omega \in \Omega $ and is such that $ \nu(A) = \int_Agd\mu $ for all $ A \in \mathcal{F} $.
 
+\subsection{}
+Let $ \{ B_n \}_{n \in \Ntrl} $ be a covering of $ \Omega $ by disjoint sets with $ 0 < \mu(B_n) < \infty $ for all $ n $. Such a covering exists because $ \mu $ is $\sigma$-finite. Now select a sequence of constants $ \{ \alpha_n \}_{n \in \Ntrl} $ such that $ \alpha_n > 0 $ for all $ n $ and 
+\begin{align}
+	\sum_{n=1}^\infty \alpha_n = 1.
+\end{align}
+For example we could select  $ \alpha_n = 2^{-n} $.
+
+We claim that the function $ \nu : \mathcal{F} \lra \mathbb{R} $ defined by
+\begin{align}
+	\nu(A) = \sum_{n=1}^\infty \alpha_n \frac{\mu(A \cap B_n)}{\mu(B_n)}
+\end{align}
+is a probability measure with the same null sets as $ \mu $.
+Firstly we show that it is a measure, that is we show $\sigma$-additivity.
+
+For a collection of disjoint sets $ \{ A_n \}_{n \in \Ntrl} $ we have that
+\begin{align}
+	\nu\left( \bigcup_{n\in\Ntrl} A_n \right) &= \sum_{k=1}^\infty \alpha_k \frac{\mu\left( \bigcup_{n=1}^\infty A_n \cap B_k \right)}{\mu(B_k)}
+\end{align}
+and by $ \sigma$-additivity of $ \mu $ we get
+\begin{align}
+	\sum_{k=1}^\infty \alpha_k \frac{\mu\left( \bigcup_{n=1}^\infty A_n \cap B_k \right)}{\mu(B_k)} &= \sum_{k=1}^\infty \alpha_k \frac{\sum_{n=1}^\infty \mu\left( A_n \cap B_k \right)}{\mu(B_k)} \\
+	&= \sum_{n=1}^\infty  \sum_{k=1}^\infty \alpha_k \frac{\mu\left( A_n \cap B_k \right)}{\mu(B_k)} \\
+	&= \sum_{n=1}^\infty \nu(A_n).
+\end{align}
+The interchange of the order of summation can be justified by the fact that
+$ \mu(A_n \cap B_k) \geq 0 $ and 
+\begin{align}
+\sum_{k=1}^\infty \alpha_k \frac{\sum_{n=1}^\infty \mu\left( A_n \cap B_k \right)}{\mu(B_k)} < \infty
+\end{align}
+which we prove now (by proving $ \nu $ is a probability measure).
+
+See that
+\begin{align}
+	\nu(\Omega) &= \sum_{k=1}^\infty \alpha_k \frac{\mu(\Omega\cap B_k)}{\mu(B_k)} \\
+	&= \sum_{k=1}^\infty \alpha_k \frac{\mu( B_k)}{\mu(B_k)} \\
+	&= \sum_{k=1}^\infty \alpha_k \\
+	&= 1.
+\end{align}
+We now just have to show that $ \mu $ and $ \nu $ share the same null sets. 
+
+Suppose $ \mu(A) = 0 $ then
+\begin{align}
+	\mu(A) &= \sum_{k=1}^\infty \alpha_k \frac{\mu(A \cap B_k)}{\mu(B_k)} \\
+		&\leq \sum_{k=1}^\infty \alpha_k \frac{\mu(A)}{\mu(B_k)} \\
+		&= 0
+\end{align}
+and thus $ \nu \ll \mu $.
+Now suppose $ \nu(A) =0 $ then
+\begin{align}
+	\sum_{k=1}^\infty \alpha_k \frac{\mu(A \cap B_k)}{\mu(B_k)} = 0
+\end{align}
+and as $ \mu(B_k) < \infty $ for all $ k $ this implies that $ \mu(A \cap B_k ) = 0$ for all $ k $. Now
+\begin{align}
+	0 &= \sum_{k=1}^\infty \mu(A \cap B_k) \\
+		&= \mu\left( \bigcup_{k=1}^\infty (A \cap B_k) \right) \\
+		&= \mu\left( A \cap \bigcup_{k=1}^\infty B_k\right) \\
+		&= \mu(A \cap \Omega) \\
+		&= \mu(A).
+\end{align}
+Thus $ \mu \ll \nu $.
+
+So $ \nu $ is a finite measure on $ (\Omega, \mathcal{F}) $ which is equivalent to $ \mu $.
 \section{}
 \subsection{}
 Firstly note that the definition of the characteristic function is
@@ -95,31 +157,33 @@ Let $ d = 1 $ and let $ \mu $ have the  Lebesgue density,
 	f(x) = \frac{C}{(1+x^2) \log(e + x^2)}, \ \ \ \ x \in \Rl.
 \end{align}
 We wish to show that $ E[X] $ is not defined but $ \hat{\mu}(u) $ is differentiable at $ 0 $. Firstly we show that $ E[X] $ is not defined. 
+If $ \mathbb{E}(X) $ were defined then
+\begin{align}
+	\mathbb{E}(X) &= \int \frac{xC}{(1+x^2)\log(e + x^2)} dx \\
+		&=  \underbrace{\int_{-\infty}^0 \frac{xC}{(1+x^2)\log(e + x^2)} dx}_{\mathbb{E}(X^-)} + \underbrace{\int_0^{\infty} \frac{xC}{(1+x^2)\log(e + x^2)} dx}_{\mathbb{E}(X^+)}
+\end{align}
+but
+\begin{align}
+	\int_0^{\infty} \frac{xC}{(1+x^2)\log(e + x^2)} dx &\geq \int_1^{\infty} \frac{xC}{2x^2\log(e + x^2)} dx \\
+	&= \int_1^{\infty} \frac{C}{2x\log(e + x^2)} dx \\
+	&\geq \int_4^{\infty} \frac{C}{2x\log(4x^2)} dx \\
+	&\geq \int_6^{\infty} \frac{C}{10x\log(x)} dx.
+\end{align}
+Let $ u = \log(x) $ so that $ du = \frac{1}{x} dx $
+and so 
+\begin{align}
+	\int_6^{\infty} \frac{C}{10x\log(x)} dx = \underbrace{\int_{\log(6)}^\infty \frac{C}{10u} du}_{\circledast}
+\end{align}
+and $ \circledast $ diverges. So $ \mathbb{E}(X^+) $ does not exist and in a similar manner we can see that $ \mathbb{E}(X^-) $ does not exist and thus $ E(X) $ is not defined.
 
+However we can calculate $ \hat{\mu}(u) $ as
 \begin{align}
-	E[X] &= \int_{-\infty}^\infty \frac{Cx}{(1+x^2) \log(e + x^2)} dx \\
-		&= \int_{-\infty}^\infty \frac{C}{(x^{-1} + x)\log(e + x^2)}
+	\hat{\mu}(u) = \int \frac{e^{ixu}C}{(1+x^2)\log(e + x^2)}dx
 \end{align}
-note that
+and note that $ \hat{\mu}(u) $ is differentiable at $ 0 $ if the following limit exists
 \begin{align}
-	\frac{C}{(x^{-1} + x)\log(e + x^2)} \sim \frac{C}{2x\log(x)}
+	\lim_{h \lra 0} \int \frac{e^{ixh}C - C}{h(1+x^2)\log(e + x^2)}dx
 \end{align}
-and 
-\begin{align}
-	\int_{a}^\infty \frac{C}{2x\log(x)}dx, \ \text{and} \ \int_{-\infty}^b \frac{C}{2x\log(x)}dx
-\end{align}
-do not converge so $ \mathbb{E}[X] $ does not exist.
-
-We now just have to show that $ \hat{mu}(u) $ is differentiable at $ u = 0 $. 
-
-\begin{align}
-	\hat{\mu}(u) = \int_{-\infty}^\infty \frac{e^{iux}C}{(1+x^2)\log(e+x^2)} dx
-\end{align}
-and
-\begin{align}
-	\frac{d}{du}\hat{\mu}(u) \Big|_{u = 0} = \int_{-\infty}^\infty \frac{ixe^{iux}C}{(1+x^2)\log(e+x^2)} dx
-\end{align}
-
 \section{}
 Let $\mu$ be the binomial distribution with $ n $ trials and probability of success $ p $, that is $ \mu = \operatorname{Bin}(n,p) $, and let $ \nu $ be the Poisson distribution with mean $ \lambda > 0 $. 
 \subsection{}
