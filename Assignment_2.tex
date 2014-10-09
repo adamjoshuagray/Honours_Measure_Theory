@@ -232,7 +232,9 @@ for every $ \mathbf{x} \in X $ and $ \mathbf{u} \in (a,b)^d $ then
 \begin{align}
 	\frac{d^\alpha}{d\mathbf{u}^\alpha} \int f(\mathbf{x}, \mathbf{u}) d\mu(\mathbf{x}) = \int \frac{\partial^\alpha}{\partial \mathbf{u}^\alpha} f(\mathbf{x}, \mathbf{u}) d\mu(\mathbf{x}) \ \ \ \ \ \text{ for } \mathbf{u} \in (a,b)^d.
 \end{align}
-The proof follows from induction on the dimension of $ \mathbf{x} $ and $ \mathbf{u} $ and the order of the derivative. The base case is specifically the statement of  corollary 2.28 (2) from the notes.
+\textbf{Proof}
+We induct on $ |\alpha| $. For $ |\alpha| = 0 $ the result is degenerate.
+Suppose it is true for $ |\alpha| $ we wish to show that it is true for $ |\alpha| + 1 $.
 \end{mdframed}
 
 We have that 
@@ -263,38 +265,38 @@ and so
 	&= i^{|\alpha|} \mathbb{E}(X^\alpha)
 \end{align}
 \subsection{}
-Let $ d = 1 $ and let $ \mu $ have the  Lebesgue density,
+Notice that as the distribution is symmetric we have that
 \begin{align}
-	f(x) = \frac{C}{(1+x^2) \log(e + x^2)}, \ \ \ \ x \in \Rl.
+	\hat{\mu}(u) &= \int e^{iux} f(x) dx \\
+		 &= \int f(x)( \cos(ux) + i\sin(ux)) dx\\
+		 &= \int f(x) cos(ux) dx
 \end{align}
-We wish to show that $ E[X] $ is not defined but $ \hat{\mu}(u) $ is differentiable at $ 0 $. Firstly we show that $ E[X] $ is not defined. 
-If $ \mathbb{E}(X) $ were defined then
+Now notice that
 \begin{align}
-	\mathbb{E}(X) &= \int \frac{xC}{(1+x^2)\log(e + x^2)} dx \\
-		&=  \underbrace{\int_{-\infty}^0 \frac{xC}{(1+x^2)\log(e + x^2)} dx}_{\mathbb{E}(X^-)} + \underbrace{\int_0^{\infty} \frac{xC}{(1+x^2)\log(e + x^2)} dx}_{\mathbb{E}(X^+)}
+	\left|\frac{\partial}{\partial u} f(x) \cos(ux)\right| = |xf(x)sin(xu)|
 \end{align}
-but
+Now notice that
 \begin{align}
-	\int_0^{\infty} \frac{xC}{(1+x^2)\log(e + x^2)} dx &\geq \int_1^{\infty} \frac{xC}{2x^2\log(e + x^2)} dx \\
-	&= \int_1^{\infty} \frac{C}{2x\log(e + x^2)} dx \\
-	&\geq \int_4^{\infty} \frac{C}{2x\log(4x^2)} dx \\
-	&\geq \int_6^{\infty} \frac{C}{10x\log(x)} dx.
+	\int |xf(x)\sin(ux)| dx = \underbrace{\int_{-K}^{K} |xf(x)\sin(ux)| dx}_{\leq M_1} + \int_{-\infty}^{-K} |xf(x)\sin(ux)| dx +\int_{K}^{\infty} |xf(x)\sin(ux)| dx
 \end{align}
-Let $ u = \log(x) $ so that $ du = \frac{1}{x} dx $
-and so 
+for some constant $ M_1 $ and a constants $ K $ and $ J $ chosen such that
 \begin{align}
-	\int_6^{\infty} \frac{C}{10x\log(x)} dx = \underbrace{\int_{\log(6)}^\infty \frac{C}{10u} du}_{\circledast}
+	\int_{K}^\infty |xf(x)\sin(ux)| dx \leq \int_{K}^\infty \frac{|\sin(ux)|}{Jx} dx.
 \end{align}
-and $ \circledast $ diverges. So $ \mathbb{E}(X^+) $ does not exist and in a similar manner we can see that $ \mathbb{E}(X^-) $ does not exist and thus $ E(X) $ is not defined.
-
-However we can calculate $ \hat{\mu}(u) $ as
+We can therefore say that
+\begin{align}'
+	\int |xf(x)\sin(ux)|dx \leq M_1 + 2 \int_K^\infty \frac{|\sin(ux)|}{Jx}dx.
+\end{align}
+Now appealing to a result in special functions we can say that 
 \begin{align}
-	\hat{\mu}(u) = \int \frac{e^{ixu}C}{(1+x^2)\log(e + x^2)}dx
+	\int_K^\infty \frac{|\sin(ux)|}{Jx}dx = \lim_{x \lra \infty} \operatorname{Si}(ux)\operatorname{sgn}(\sin(ux)) -\operatorname{Si}(uK)\operatorname{sgn}(\sin(uK))
 \end{align}
-and note that $ \hat{\mu}(u) $ is differentiable at $ 0 $ if the following limit exists
+and it turns out that $ \frac{1}{J}\lim_{x\lra\infty} \operatorname{Si}(ux)\operatorname{sgn}(\sin(ux)) < \infty $ which means that 
 \begin{align}
-	\lim_{h \lra 0} \int \frac{e^{ixh}C - C}{h(1+x^2)\log(e + x^2)}dx
+	\left|\frac{\partial}{\partial u} f(x) \cos(ux)\right| \in L^1(\mu)
 \end{align}
+for every $ u $. 
+We can then apply the dominated convergence theorem corollary 2.28 (2) to say that $ \hat{\mu}(u) $ is differentiable for all $ u $ and not just at $ 0 $.
 \section{}
 Let $\mu$ be the binomial distribution with $ n $ trials and probability of success $ p $, that is $ \mu = \operatorname{Bin}(n,p) $, and let $ \nu $ be the Poisson distribution with mean $ \lambda > 0 $. 
 \subsection{}
