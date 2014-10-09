@@ -14,6 +14,85 @@
 \unswtitle
 
 \section{}
+\subsection{}
+Let $ \mu $ and $ \nu $ be probability measures on $ ( \mathbb{R}, \mathcal{B}(\mathbb{R})) $.
+We wish to show that the convolution
+\begin{align}
+	\mu * \nu(B) = \int\nu(B-x)\mu(dx)
+\end{align}
+of these two measures is well defined in the sense that $ \nu(B - x) $ is measurable in $ x $ and the integral exists.
+
+Firstly see that
+\begin{align}
+	\nu(B-x) &= \int \chi_{B-x}(y) \nu(dy) \\
+		&= \int \chi_{B}(x+y) \nu(dy)
+\end{align}
+and by seeing that $ \phi(x,y) = \chi_B(x+y) $ is $ \mathcal{B}(R) \otimes \mathcal{B}(R) $ measurable and so applying Tonelli's theorem $ \nu(B - x) $ is measurable.  
+
+We now need to show that the integral exists. This is clear because
+\begin{align}
+	0 \leq \nu(B - x) \leq 1
+\end{align}
+and thus
+\begin{align}
+	\int \nu(B-x) \mu(dx) &\leq \int 1 \mu(dx) \\
+		&= 1
+\end{align}
+because $ \mu $ is a probability measure. 
+
+\subsection{}
+
+Suppose there exists a bounded set $ F \in \mathcal{B}(\mathbb{R}) $ such that 
+\begin{align}
+	\mu * \nu(F) = 1 
+\end{align}
+we wish to show that there exists bounded sets $ G, H \in \mathcal{B}(\mathbb{R}) $ such that
+\begin{align}
+	\mu(G) = 1 \ \ \ \text{and} \ \ \ \nu(H) = 1. 
+\end{align}
+See that if 
+\begin{align}
+	1 &= \mu * \nu(F) \\
+		&= \int \nu(F-x)\mu(dx) \\
+		&= \int\int \chi_F(x+y) \nu(dy) \mu(dx)
+\end{align}
+
+Now as $ F $ is bounded there there exist intervals $ G = [a,b] $ and $ H = [c,d]$ such that
+\begin{align}
+	\int\int \chi_F(x+y) \chi_G(x) \chi_H(y) \nu(dy) \mu(dx)
+\end{align}
+and further
+\begin{align}
+	1=\int\int \chi_F(x+y) \chi_G(x) \chi_H(y) \nu(dy)\mu(dx) & \leq \int\int  \chi_G(x) \chi_H(y) \nu(dy) \mu(dx) \\
+	&= \int \chi_{H}(y) \nu(dy) \int  \chi_G(x) \mu(dx)
+\end{align}
+\footnote{Note that the reason we could split up the integrals to a product in both cases is because $ \int \chi_H(y) \nu(y) $ is a constant with respect to $ x $.}
+which implies that
+\begin{align}
+\int  \chi_G(x) \mu(dx) = 1 \ \ \ \text{ and } \ \ \ \int \chi_{H}(y) \nu(dy) = 1
+\end{align}
+that is $ \mu(G) = 1 $ and $ \nu(H) = 1 $.
+
+
+Suppose that $ F $ is now countable but such that $ \mu * \nu (F) = 1 $.
+Then
+\begin{align}
+	1 &= \int \nu(F - x) \mu(dx) \\
+		&= \int \int \chi_{F}(x+y) \nu(dy) \mu(dx)
+\end{align}
+now since $ F = \left\{(x_k, y_k) \right\}_{k \in \Ntrl}$ is countable then there must exist countable sets $ G = \{ x_k \}_{k\in\Ntrl} $, $ H = \{ y_k \}_{k\in\Ntrl} $
+such that
+\begin{align}
+	\int\int \chi_F(x+y) \nu(dy)\mu(dx) = \int\int \chi_F(x+y) \chi_G(x) \chi_H(y) \nu(dy)\mu(dx)
+\end{align}
+and further
+\begin{align}
+	1 = \int\int \chi_F(x+y) \chi_G(x) \chi_H(y) \nu(dy)\mu(dx) &\leq \int\int \chi_G(x) \chi_H(y) \nu(dy)\mu(dx) \\
+	&= \int \chi_H(y) \nu(dy) \int \chi_G(x)\mu(dx)
+\end{align}
+which as before implies $ \mu(G) = 1 $ and $ \nu(H) = 1 $.
+
+Then argument above also holds for finite $ F $ with exactly the same construction and so if $ F $ is finite and such that $ \mu * \nu(F) = 1 $ then there must exist finite sets $ G $ and $ H $ such that $ \mu(G) = 1 $ and $ \nu(H) = 1 $.
 \section{}
 \subsection{}
 Suppose $ u $ and $ \nu $ are $\sigma$-finite \emph{positive} measures on $ (\Omega, \mathcal{F}) $. Then suppose that $ \mu << \nu $ and $ \nu << \mu $.
