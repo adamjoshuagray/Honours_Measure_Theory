@@ -100,6 +100,38 @@ Then for $ A \in \mathcal{F} $ we have that $ \mu(a) = 0 \Rightarrow \nu(A) = 0 
 
 We now wish to show that there is an $ \mathcal{F}$-measurable function $ g $ that satisfies $ 0 < g(\omega) < +\infty $ at each $ \omega \in \Omega $ and is such that $ \nu(A) = \int_Agd\mu $ for all $ A \in \mathcal{F} $.
 
+
+Now suppose that there is a $ \mathcal{F} $ measurable function $ 0 < g(\omega) < \infty $ such that $ \nu(A) = \int_{A} g d\mu $.
+
+Suppose $ \nu(A) =0 $ then
+\begin{align}
+	0 = \nu(A) &= \int_A g d\mu \\
+	 &= \int \chi_A g d\mu
+\end{align}
+Now as $ \chi_A g >= 0 $ and $ \mu $ is a positive measure then by theorem 2.18 (3) we must that $ \chi_Ag = 0 $, $ \mu-$a.e. As $ g > 0 $ we have that $ \chi_A = 0 $ $ \mu$-a.e. which means that $ \mu(A) = 0 $.
+So $ \mu \ll \nu $.
+
+We claim that $ \nu \ll \mu $ as well. Suppose $ \mu(A) =0 $ then note that as $ g $ is a measurable function we have that by Theorem 2.11 $ g(\omega) = \lim_{n\lra\infty} s_n(\omega) $ for all $ \omega $ and a sequence of increasing simple functions.
+That is
+\begin{align}
+	\int_A g d\mu = \int_A \lim_{n\lra\infty} s_n d\mu.
+\end{align}
+Further by the monotone convergence theorem we have that 
+\begin{align}
+\int_A \lim_{n\lra\infty} s_n d\mu = \lim_{n\lra\infty}\int_A s_n d\mu.
+\end{align}
+
+Now for some simple function $ s $ we have that if $ \mu(A) =0 $ then 
+\begin{align}
+	\int_A s d\mu &= \int_A\sum_{k=1}^{N} \alpha_k \chi_{B_k} d\mu \\
+		&= \sum_{k=1}^N \alpha_k \int_A \chi_{B_k} d\mu \\
+		&= \sum_{k=1}^N \alpha_k \int \chi_{B_k\cap A} d\mu \\
+		&\leq  \sum_{k=1}^N \alpha_k \int \chi_{A} d\mu \\
+		&= \sum_{k=1}^N \alpha_k 0\\
+		&= 0
+\end{align}
+thus if $ \mu(A) = 0 $ then $ \int_A s_n d\mu =0 $ for all $ n $ and so $ \lim_{n \lra\infty} \int_A s_n d\mu = 0$ and hence $ \nu(A) =0 $. This means that $ \nu \ll \mu $ as well.
+
 \subsection{}
 Let $ \{ B_n \}_{n \in \Ntrl} $ be a covering of $ \Omega $ by disjoint sets with $ 0 < \mu(B_n) < \infty $ for all $ n $. Such a covering exists because $ \mu $ is $\sigma$-finite. Now select a sequence of constants $ \{ \alpha_n \}_{n \in \Ntrl} $ such that $ \alpha_n > 0 $ for all $ n $ and 
 \begin{align}
