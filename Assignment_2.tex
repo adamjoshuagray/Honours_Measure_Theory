@@ -96,11 +96,52 @@ which as before implies $ \mu(G) = 1 $ and $ \nu(H) = 1 $.
 Then argument above also holds for finite $ F $ with exactly the same construction and so if $ F $ is finite and such that $ \mu * \nu(F) = 1 $ then there must exist finite sets $ G $ and $ H $ such that $ \mu(G) = 1 $ and $ \nu(H) = 1 $.
 \section{}
 \subsection{}
+$ (1) \Leftrightarrow (2) $
+
 Suppose $ u $ and $ \nu $ are $\sigma$-finite \emph{positive} measures on $ (\Omega, \mathcal{F}) $. Then suppose that $ \mu << \nu $ and $ \nu << \mu $.
 Then for $ A \in \mathcal{F} $ we have that $ \mu(a) = 0 \Rightarrow \nu(A) = 0 $ and $ \nu(A) = 0 \Rightarrow \mu(A) $. That is to say that $ \nu(A) =0 \Leftrightarrow \mu(A) = 0 $. That is to say that $ \nu $ and $ \mu $ have the same null sets. This argument is symmetric so it is clear that the reverse implication also holds.
 
+$(1) \Longrightarrow (3) $
+
 We now wish to show that there is an $ \mathcal{F}$-measurable function $ g $ that satisfies $ 0 < g(\omega) < +\infty $ at each $ \omega \in \Omega $ and is such that $ \nu(A) = \int_Agd\mu $ for all $ A \in \mathcal{F} $.
 
+The Radon-Nikodym theorem guarantees that there must exist a \emph{unique} $ g \in L^1(\mu)$ such that 
+\begin{align}
+	\nu(A) = \int_A fd\mu.
+\end{align}
+However, $ f $ is unique only up to sets of measure $ 0 $. Due to the fact that $ \nu(A) \geq 0 $ for all $ A \in \mathcal{F} $ we must have that 
+$\int_A f d\mu \geq 0 $ for all $ A \in \mathcal{F} $ and hence by proposition 2.20 (4) $ f \geq 0 $ on every $ A \in \mathcal{F} $ $ \mu$-a.e.
+
+That is to say that $ f < 0 $ on a set of measure 0. So we write
+\begin{align}
+	h(\omega) = 
+	\begin{cases}
+		1 & \omega \in [-\infty, 0) \\
+		f & \text{otherwise}.
+	\end{cases}
+\end{align}
+Notice that $ [-\infty, 0) \in \mathcal{F} $ and so $ h $ is a $ \mathcal{F} $ measurable function.
+
+Now 
+\begin{align}
+	\left( \frac{d\mu}{d\nu} \right)\left( \frac{d\nu}{d\mu} \right) = 1 
+\end{align}
+almost everywhere implies that 
+\begin{align}
+\left( \frac{d\mu}{d\nu} \right) = 0 \text{ iff } \left( \frac{d\nu}{d\mu} \right) = \infty
+\end{align}
+and vica versa. However, we assumed that $ \nu \sim \mu $ (1) and hence $ f =0 $ and $ f = \infty $ also only happen on a set of measure 0 so we can write
+\begin{align}
+	g(\omega) = 
+	\begin{cases}
+		1 & \omega \in [-\infty, 0] \cup \{\infty\} \\
+		f & \text{otherwise}.
+	\end{cases}	
+\end{align}
+and because $ [-\infty, 0] \in \mathcal{F} $ and $ \{\infty\} \in \mathcal{F} $ so we have that $ g $ is $ \mathcal{F} $ measurable. Further $ 0 < g(\omega) < \infty $.
+
+
+$(3) \Longrightarrow (1) $.
 
 Now suppose that there is a $ \mathcal{F} $ measurable function $ 0 < g(\omega) < \infty $ such that $ \nu(A) = \int_{A} g d\mu $.
 
