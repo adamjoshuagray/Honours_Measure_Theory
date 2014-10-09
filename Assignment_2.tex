@@ -425,9 +425,13 @@ Now
 can be intuitively read as $ E_j $ happens infinitely often. Which is to say that $ 5285 $ occurs \emph{blockwise} in the expansion of $ \omega $ infinitely often. Clearly as allowing for overlaps allows for more configurations then the probability is $ 1 $ (it can be no more). 
 
 \section{}
-We wish to prove that if $ X $ and $ Y $ are i.i.d random variables and $ X+Y $ and $ X-Y $ are independent then $ X $ and $ Y $ are normal. This result is actually called Bernstein's Theorem. (Actually there are lots of things called Bernstein's Theorem, but this is one of them.)\footnote{This proof is based off ideas from 
+We wish to prove that if $ A $ and $ B $ are i.i.d random variables with finite variance and $ A+B $ and $ A-B $ are independent then $ A $ and $ B $ are normal. This result is actually called Bernstein's Theorem. (Actually there are lots of things called Bernstein's Theorem, but this is one of them.)\footnote{This proof is based off ideas from 
 
 \url{http://math.stackexchange.com/questions/556030/x-and-y-i-i-d-xy-and-x-y-independent-mathbbex-0-and-mathbb}}.
+
+Firstly write $ X = (A - \mathbb{E}(A))/\sqrt{\mathbb{E}(A^2)} $ and $ Y = (B - \mathbb{E}(B))/\sqrt{\mathbb{E}(B^2)} $. $ \mathbb{E}(A) $, $ \mathbb{E}(A^2) $, $\mathbb{E}(B) $ and $\mathbb{E}(B^2) $  exist because $ \operatorname{Var}(A) < \infty $ and $ \operatorname{Var}(B) < \infty $ .
+
+Notice that $ \mathbb{E}(X) = 0 $ and $ \mathbb{E}(X^2) = 1 $.
 
 Notice that we can write 
 \begin{align}
@@ -463,8 +467,8 @@ and by rearranging and dividing by $ t $ we get
 	\frac{\Xi(u)}{u} = \frac{\Xi(\frac{u}{2^n})}{\frac{u}{2^n}}.
 \end{align}
 Now if $ \mathbb{E}[X] = \alpha $ and $ \mathbb{E}[X^2] = \beta $ (these values exist because of the assumption of finite variance) we get that
-$ \hat{\mu}'(0)= i\alpha $ and $ \hat{\mu}''(0) = -\beta $ by the results of 3.2 of this assignment. Now as $ \hat{\mu} $ is twice differentiable then so are $ \Xi $ and $ \Psi $.
-Now $ \Xi'(u) = 2\Psi'(u) $ and $ \Psi'(u) = \frac{\hat{\mu}'(u)}{\hat{\mu}(u)} $. Thus $ \Xi'(0) = 2i\alpha $ and since
+$ \hat{\mu}'(0)= 0 $ and $ \hat{\mu}''(0) = -1 $ by the results of 3.2 of this assignment. Now as $ \hat{\mu} $ is twice differentiable then so are $ \Xi $ and $ \Psi $.
+Now $ \Xi'(u) = 2\Psi'(u) $ and $ \Psi'(u) = \frac{\hat{\mu}'(u)}{\hat{\mu}(u)} $. Thus $ \Xi'(0) = 0 $ and since
 \begin{align}
 	\frac{\Xi(u)}{u} =\frac{\Xi(\frac{u}{2^n})}{\frac{u}{2^n}}
 \end{align}
@@ -478,6 +482,24 @@ Now
 \begin{align}
  \Psi''(u) = \frac{\hat{\mu}''(u) \hat{\mu}(u) - (\hat{\mu}'{(u)})^2}{\hat{\mu}(u)^2}
  \end{align}
- and at zero this means $ \Psi''(0) = -\beta +\alpha^2 $.
- By using the 
+ and at zero this means $ \Psi''(0) = -1 $.
+ By using the previous result for $ \Xi'[u] = 0 $ along with its definition we have that
+ \begin{align}
+ 	\Psi(u) = 4\Psi(\frac{u}{2})
+ \end{align}
+ and so 
+ \begin{align}
+ 	\frac{\Psi(u)}{u^2} = \frac{4}{\frac{u^2}{4^n}}\Psi(\frac{u}{2^n}).
+ \end{align}
+ Now
+ \begin{align}
+ 	\lim_{n\lra\infty}\frac{4}{\frac{u^2}{4^n}}\Psi(\frac{u}{2^n}) = \frac{1}{2} \Psi''(0)
+ \end{align}
+ through one application of L'Hopitals rule.
+ 
+ Thus $ \Psi(u) = -\frac{1}{2}(u^2) $
+ which means that $ \hat{\mu}(u) = \exp(-\frac{1}{2}(u^2)) $.
+ Notice that this is the characteristic function of a standard normal distribution and so $ X $ and $ Y $ both have standard normal distributions. By rescaling we get that $ A $ and $ B $ are also normally distributed (just with different parameters).
+ 
+ It is not hard to see that this result generalises to larger collections of random variables. For a proof of that result see \emph{Lukacs, Eugene; King, Edgar P. (1954). ``A Property of Normal Distribution'' The Annals of Mathematical Statistics 25 (2): 389 \textemdash 394.}
 \end{document}
