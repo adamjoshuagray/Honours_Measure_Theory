@@ -60,10 +60,10 @@
 
 \begin{frame}{Outline}
     \begin{itemize}
-        \item Standard diffusion
-        \item Super diffusion
-        \item Sub diffusion
-        \item Solving a fractional differential equation
+        \item Derivation of Standard Diffusion
+        \item Derivation of Super Diffusion
+        \item Time Fractional Diffusion
+        \item Applications
     \end{itemize}
 \end{frame}
 
@@ -85,7 +85,7 @@
 \end{frame}
 
 \begin{frame}{Central Limit Theorem and Random Walks}
-    We can extend this idea by introducing a scaling paramter $ \gamma $.
+    We can extend this idea by introducing a scaling parameter $ \gamma $.
     \begin{align}
         S_{\lfloor \gamma t \rfloor} = \sum_{k=1}^{\lfloor \gamma t \rfloor} X_k.
     \end{align}
@@ -136,7 +136,7 @@
 \end{frame}
 
 \begin{frame}{A More General Result}
-    We can generalise this result a bit and say that if $ \mathbb{E}[X_i^2] = \sigma^2 $
+    We can generalize this result a bit and say that if $ \mathbb{E}[X_i^2] = \sigma^2 $
     then $ \frac{S_{\lfloor \gamma t \rfloor}}{\sqrt{\gamma}} \lra Z_{t} $, but now $ Z_t \sim \mathcal{N}(0,2\sigma^2 t) $.
     
     Further the Fourier transform of the density of $ Z_t $ is $ e^{-t\sigma^2k^2} $
@@ -154,13 +154,13 @@
 
 \begin{frame}{Recap}
     \begin{itemize}
-        \item All we have done to get this result is require that the random variables that represent the \emph{jumps} fullfill the requirements of the CLT.
+        \item All we have done to get this result is require that the random variables that represent the \emph{jumps} fulfill the requirements of the CLT.
         \item What if we relax the \emph{finite second moment} condition?
     \end{itemize}
 \end{frame}
 \begin{frame}{Pareto Distribution}
     \begin{itemize}
-        \item Consider a random variable $ P $ with density $ Cx^{-\alpha-1} $ for some normalising constant $ C $.
+        \item Consider a random variable $ P $ with density $ Cx^{-\alpha-1} $ for some normalizing constant $ C $.
         \item If we require $ 1 < \alpha < 2 $ then we have $ \mathbb{E}[P] $ exists but $ \mathbb{E}[P^2] = \infty $ does not.
         \item It can be shown (with very lengthy computation) that the FT of the density of $ P $ is $ 1 + (ik)^\alpha + O(k^2) $.
         \item The idea is to setup a sequence of random variables $ Y_1, \ldots Y_n $, all iid with Pareto distribution with parameter $ \alpha $ and use these as the \emph{jumps} in the random walk.
@@ -183,7 +183,7 @@
 \end{frame}
 
 \begin{frame}{Long Time Limit}
-    Like before we can introduce a time scale paramter $ \gamma $ and write
+    Like before we can introduce a time scale parameter $ \gamma $ and write
     \begin{align}
         S_{\lfloor \gamma t \rfloor} = \sum_{k=1}^{\lfloor \gamma t \rfloor}Y_k.
     \end{align}
@@ -283,195 +283,57 @@
     It can be shown that $ u(x,t) = Ax^{-\alpha-1} + o(x^{-\alpha-1}) $ as $ x \lra \infty $ with $ A $ depending on $ t $ and $ \alpha $.
 \end{frame}
 
-\begin{frame}{A Quick Note on the Laplace Transform}
-	\begin{definition}
-		We the define the Laplace transform of a function $ f $ to be the function $ F $
-		given by
-		\begin{align*}
-			F(s) := \int_0^\infty e^{-st} f(t) dt
-		\end{align*}
-	\end{definition}
-	
-	We often write $ F(s) = \laplace{f(t)} $.
-	
+\begin{frame}{Fractional Derivative Fourier Transform}
+
+    Actually this isn't entirely the case...
+    In space we will often use a \emph{Riesz} or \emph{Riesz-Feller} fractional derivative. 
+    
+    The Riesz fractional derivative of a function $ f $ is defined as 
+    \begin{align}
+        \mathcal{F}^{-1}\{-|k|^\alpha \hat{f}(k) \}(x).
+    \end{align}
+    The reason one does this is because $ e^{(ik)^\alpha} $ isn't really well defined for non-integer $ \alpha $ and $ k < 0 $. 
 \end{frame}
 
-\begin{frame}{A Quick Note on the Laplace Transform}
-	
-		
-	
-	The Laplace transform is particularly useful as it allows us to transform a differential equation into
-	an ``algebraic'' equation. 
-	
-	Lerch's theorem guarantees, with minor caveats, that the Laplace transform of a function is
-	unique.
-	
+\begin{frame}{Time Fractional Diffusion}
+    \begin{itemize}
+        \item A similar idea can be applied to the \emph{time} between steps. 
+        \item This is done by considering something called a continuous time random walk.
+        \item If we choose the distribution to be the \emph{exponential} distribution we get get normal diffusion.
+        \item If we choose something different, say the \emph{Mittag-Leffler} distribution, then we can get time-fractional diffusion.
+        \item This is where the time derivative is fractional.
+    \end{itemize}
 \end{frame}
-
-\begin{frame}{Basic Idea of the Laplace Transform Method}
-	\begin{itemize}
-		\item Apply the Laplace transform to both sides of the differential equation to get
-		and "algebraic" equation.
-		\item Apply the Laplace transform to the initial conditions. 
-		\item Sub the transformed initial conditions into the transformed equation.
-		\item Rearrange to get an expression for the Laplace transform of the function of interest.
-		\item Invert. (This is possible, and guaranteed with minor caveats by Lerch's theorem)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{The Laplace Transform of the Riemann-Liouville Integral}
-	\begin{lemma}
-	The Laplace transform of the Riemann-Liouville integral of a function $ f $ is given by
-		$$ \mathcal{L} \left\{ I_0^\alpha f \right\}  = s^{-\alpha} \mathcal{L} \left\{ f \right\}.	$$
-	\end{lemma}
-\end{frame}
-
-\begin{frame}{The Laplace Transform of the Riemann-Liouville Integral[Proof]}
-	Since 
-	$$
-		 (I_0^\alpha f)(t) = \frac{1}{\Gamma(\alpha)} \int_0^t f(u) (t-u)^{\alpha - 1} du
-	$$
-	is just $ \frac{1}{\Gamma(\alpha)} $ times the convolution of $ f $ with $ t^{\alpha - 1} $ then by the convolution theorem
-	for Laplace transforms we have that 
-	\begin{align*}
-		\mathcal{L} \left\{ I_0^\alpha f \right\} &= \frac{1}{\Gamma(\alpha)} \mathcal{L} \left\{ \int_{0}^{t} f(u) (t-u)^{\alpha - 1} du \right\} \\
-			&= \frac{1}{\Gamma(\alpha)} \mathcal{L} \left\{ f(t) \right\} \underbrace{\mathcal{L} \left\{ t^{\alpha - 1} \right\}}_{=s^{-\alpha} \Gamma(\alpha)} \\
-			&= s^{-\alpha} \mathcal{L} \left\{ f \right\}.
-	\end{align*}
-	\qed
-\end{frame}
-
-\begin{frame}{The Laplace Transform of the Caputo Derivative}
-	The Laplace transform of the Caputo derivative of  a function $ f $ is given by
-	\begin{align*}
-		\laplace{\capder{0}{\alpha}{f}} = s^{\alpha - n} \left[ s^n \laplace{f} - \sum_{k=0}^{n-1} s^{n-k-1} \left( \der{f}{t}{k} \right)(0) \right].
-	\end{align*}
-\end{frame}
-
-\begin{frame}{The Laplace Transform of the Caputo Derivative [Proof]}
-	See that
-	\begin{align*}
-		\laplace{\capder{0}{\alpha}{f}} &= \laplace{  \rli{0}{n-\alpha}{\der{f}{t}{n}}} \\
-			&= \underbrace{\frac{1}{\Gamma(n-\alpha)}\laplace{ \int_0^t (t-u)^{n-\alpha-1} \der{f}{t}{n} du}}_{\circledast} \\ 
-	\end{align*}
-\end{frame}
-
-\begin{frame}{The Laplace Transform of the Caputo Derivative [Proof]}
-	$ \circledast $ is just the Laplace transform of a convolution so 
-	\begin{align*}
-		\circledast &= \laplace{t^{n-\alpha-1}} \laplace{\der{f}{t}{n}} \\
-		&= \frac{1}{n-\alpha} \left( s^{-(n-\alpha)} \Gamma(n-\alpha) \right) \\
-		& \ \ \ \times \left( s^n \laplace{f} - \sum_{k=0}^{n-1} s^{n-k-1} \left( \der{f}{t}{k} \right)(0) \right) \\
-		&= s^{\alpha - n} \left[ s^n \laplace{f} - \sum_{k=0}^{n-1} s^{n-k-1} \left( \der{f}{t}{k} \right)(0) \right].
-	\end{align*}
-	\qed
-\end{frame}
-
-\begin{frame}{One Parameter Mittag-Lefler Function}
-	\begin{definition}
-		The one parameter Mittag-Lefler $ E_\alpha $ function is defined by its power series.
-		$$
-			E_\alpha(t) = \sum_{k=0}^{\infty} \frac{t^k}{\Gamma(\alpha k + 1)}
-		$$
-	\end{definition}
-\end{frame}
-
-\begin{frame}{Laplace Transform of $E_\alpha(\beta t^\alpha)$}
-	\begin{lemma}
-		\begin{align*}	
-			\laplace{ E_\alpha (\beta t^\alpha)} = \frac{s^{\alpha - 1}}{s^\alpha - \beta}
-		\end{align*}
-	\end{lemma}
-\end{frame}
-
-\begin{frame}{Laplace Transform of $E_\alpha(\beta t^\alpha)$ [Proof]}
-See that
-	\begin{align*}
-		\laplace{ E_\alpha (\beta t^\alpha)} = \int_0^\infty e^{-st} \sum_{k=0}^\infty \frac{(\beta t^\alpha)^k}{\Gamma(\alpha k+1)} dt
-	\end{align*}
-	and because the series converges absolutely for all $ t \in \mathbb{R} $  we may interchange the integral
-	and the sum to get
-	\begin{align*}
-		\int_0^\infty e^{-st} \sum_{k=0}^\infty \frac{(\beta t^\alpha)^k}{\Gamma(\alpha k+1)} dt &= \sum_{k=0}^\infty \int_0^\infty e^{-st} \frac{(\beta t^\alpha)^k}{\Gamma(\alpha k + 1)} dt \\
-			&= \sum_0^\infty \frac{\beta^k}{\Gamma(\alpha k + 1)} \int_0^\infty e^{-st} t^{\alpha k} dt. \\
-	\end{align*}
-\end{frame}
-
-\begin{frame}{Laplace Transform of $E_\alpha(\beta t^\alpha)$ [Proof]}
-	By performing the change of variables $ x =st $ we get that 
-	\begin{align*}
-		\sum_0^\infty \frac{\beta^k}{\Gamma(\alpha k + 1)} \int_0^\infty e^{-st} t^{\alpha k} dt 
-			&= \sum_0^\infty \frac{\beta^k s^{-(k+1)}}{\Gamma(\alpha k + 1)} \underbrace{\int_0^\infty e^{-x} x^{\alpha k} dx}_{\Gamma(\alpha k + 1)} \\
-			&= \sum_{k=0}^\infty \beta^{k} s^{-(\alpha k + 1)} \\
-			&= \frac{s^{\alpha-1}}{s^\alpha - \beta}.	
-	\end{align*}
-	\qed
-\end{frame}
-
-\begin{frame}{Summary of Important Results}
-	\begin{align*}
-		\laplace{\capder{0}{\alpha}{f}} &= s^{\alpha - n} \left[ s^n \laplace{f} - \sum_{k=0}^{n-1} s^{n-k-1} \left( \der{f}{t}{k} \right)(0) \right] \\
-		\laplace{ E_\alpha (\beta t^\alpha)} &= \frac{s^{\alpha - 1}}{s^\alpha - \beta}
-	\end{align*}
-\end{frame}
-
-
-
-\begin{frame}{The Solution to the Differential Equation}
-	\begin{lemma}
-		The fractional differential equation,
-		\begin{align}
-			\label{eq:fde-1}
-			\left( \prescript{C}{}{\mathcal{D}_0^\alpha}y \right)(t) = \beta y(t) 
-		\end{align}
-
-		along with the initial conditions 
-		\begin{align}
-			\label{eq:fde-1-ic}
-			y^{(k)}(0) = 
-			\begin{cases}
-				1 & k = 0 \\
-				0 & 1 \leq k \leq \lfloor \alpha \rfloor - 1  
-			\end{cases}
-		\end{align}
-		has solution
-		$ y(t) = E_\alpha \left( \beta t^\alpha \right) $
-	\end{lemma}
-\end{frame}
-
-\begin{frame}{Proof of Proposed Solution}
-	Taking the Laplace transform of both sides of \eqref{eq:fde-1} yields
-	\begin{align*}
-		\laplace{\capder{0}{\alpha}{y}} &= \beta \laplace{y} \\
-		s^{-(n+\alpha)} \left[s^n \laplace{y} - \sum_{k=0}^{n-1} s^{n-k-1} y^{(k)}(0) \right] &= \beta \laplace{y}
-	\end{align*}
-\end{frame}
-
-\begin{frame}{Proof of Proposed Solution}
-	Then taking into account \eqref{eq:fde-1-ic} (the initial conditions) we get
-	\begin{align*}
-		s^{-(n+\alpha)} \left[s^n \laplace{y} - s^{n-1}\right] &= \beta \laplace{y}
-	\end{align*}
-	and so 
-	\begin{align*}
-		\laplace{y} = \frac{s^{\alpha-1}}{s^\alpha - \beta}.
-	\end{align*}
-\end{frame}
-
-\begin{frame}{Proof of Proposed Solution}
-	By by noticing that 
-	$$
-		\laplace{y} = \frac{s^{\alpha-1}}{s^\alpha - \beta}.
-	$$
-	is the Laplace transform of $ E_\alpha(\beta t^\alpha) $ we have that
-	\begin{align*}
-		y(t) = E_\alpha(\beta t^\alpha)
-	\end{align*}
-	\qed
-\end{frame}
-
-
 	
 
+\begin{frame}{Coupled Continuous Time Random Walks}
+    \begin{itemize}
+        \item One can go even further with space and time derivatives. 
+        \item If we assume that the waiting times between jumps and time size of the jumps are independent then we get a \emph{decoupled} random walk.
+        \item If we don't assume this then we get a coupled random walk. This has particularly interesting applications in finance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Applications}
+    \textbf{Finance}
+    \begin{itemize}
+        \item Raberto, M., Scalas, E., Gorenflo, R., \& Mainardi, F. (2000). The waiting-time distribution of LIFFE bond futures. arXiv preprint cond-mat/0012497
+        \item Scalas, E., Gorenflo, R., \& Mainardi, F. (2000). Fractional calculus and continuous-time finance. Physica A: Statistical Mechanics and its Applications, 284(1), 376-384.
+    \end{itemize}
+    \textbf{Biology}
+    \begin{itemize}
+        \item Goychuk, I., \& Hänggi, P. (2004). Fractional diffusion modeling of ion channel gating. Physical Review E, 70(5), 051915.
+    \end{itemize}
+    \textbf{Chemistry}
+    \begin{itemize}
+        \item Bazelyansky, M., Robey, E., \& Kirsch, J. F. (1986). Fractional diffusion-limited component of reactions catalyzed by acetylcholinesterase. Biochemistry, 25(1), 125-130.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Acknowledgement}
+    This talk was partly based off ideas outlined in
+    
+    Meerschaert, M. M., \& Sikorskii, A. (2011). Stochastic models for fractional calculus (Vol. 43). Walter de Gruyter.
+\end{frame}
 
 \end{document}
