@@ -68,7 +68,7 @@
 \end{frame}
 
 
-\begin{frame}{Central Limit theorem and Random Walks}
+\begin{frame}{Central Limit Theorem and Random Walks}
 	\begin{block}{Random Walk}
 	    Let $ X_1, \ldots X_n $ be a sequence of random variables,
 	    then 
@@ -84,7 +84,7 @@
 	\emph{weakly} as $ n \lra \infty $, where $ Z \sim \mathcal{N}(0,2) $
 \end{frame}
 
-\begin{frame}{Central Limit theorem and Random Walks}
+\begin{frame}{Central Limit Theorem and Random Walks}
     We can extend this idea by introducing a scaling paramter $ \gamma $.
     \begin{align}
         S_{\lfloor \gamma t \rfloor} = \sum_{k=1}^{\lfloor \gamma t \rfloor} X_k.
@@ -147,27 +147,140 @@
     What this says is that as particles jump around more, they diffuse more rapidly.
 \end{frame}
 
-\begin{frame}{ Riemann-Liouville vs Caputo Derivative}
-	\begin{alertblock}{Note!}
-		The Caputo derivative and the and the Riemann-Liouville derivatives are note the same.
-		In general 
-		\begin{align*}
-			\capder{a}{\alpha}{f}(x) \neq \rld{a}{\alpha}{f}(x).
-		\end{align*}
-	\end{alertblock}
-	The reason is exactly the same reason that in general
-	\begin{align*}
-		f(x) \neq \int_a^x f'(t) dt.
-	\end{align*}
-	In some sense if you differentiate first you ``lose information'' about the function.
+
+\begin{frame}{A Plot}
+    \includegraphics[scale=0.4]{Diffusion}
 \end{frame}
 
-\begin{frame}{ Riemann-Liouville vs Caputo Derivative}
+\begin{frame}{Recap}
+    \begin{itemize}
+        \item All we have done to get this result is require that the random variables that represent the \emph{jumps} fullfill the requirements of the CLT.
+        \item What if we relax the \emph{finite second moment} condition?
+    \end{itemize}
+\end{frame}
+\begin{frame}{Pareto Distribution}
+    \begin{itemize}
+        \item Consider a random variable $ P $ with density $ Cx^{-\alpha-1} $ for some normalising constant $ C $.
+        \item If we require $ 1 < \alpha < 2 $ then we have $ \mathbb{E}[P] $ exists but $ \mathbb{E}[P^2] = \infty $ does not.
+        \item It can be shown (with very lengthy computation) that the FT of the density of $ P $ is $ 1 + (ik)^\alpha + O(k^2) $.
+        \item The idea is to setup a sequence of random variables $ Y_1, \ldots Y_n $, all iid with Pareto distribution with parameter $ \alpha $ and use these as the \emph{jumps} in the random walk.
+    \end{itemize}
+    
+\end{frame}
 
-	The Caputo derivative is often used in fractional differential equations because it
+\begin{frame}{Pareto Distribution}
+    Setup $ S_n = \sum_{k=1}^n Y_n $ as before.
+    
+    By the convolution theorems for FTs we can calculate the FT of the density of $ \frac{S_n}{n^\frac{1}{\alpha}} $ to be
+    \begin{align}
+        \left( 1 + \frac{(ik)^\alpha}{n} + O(n^{-\frac{2}{\alpha}}) \right)^n
+    \end{align}
+    Notice that as $ n \lra \infty $ this has limit $ e^{(ik)^\alpha} $.
+    
+    The LCT implies that $ \frac{S_n}{n^\frac{1}{\alpha}} \lra Z $ where $ Z $ has FT $ e^{(ik)^\alpha} $.
+    
+    Notice that in some way this is an \emph{Extended Central Limit Theorem}.
+\end{frame}
+
+\begin{frame}{Long Time Limit}
+    Like before we can introduce a time scale paramter $ \gamma $ and write
+    \begin{align}
+        S_{\lfloor \gamma t \rfloor} = \sum_{k=1}^{\lfloor \gamma t \rfloor}Y_k.
+    \end{align}
+    Again by considering the FT of 
+    \begin{align}
+        \frac{S_{\lfloor \gamma t \rfloor}}{\gamma^\frac{1}{\alpha}}
+    \end{align}
+    which is
+    \begin{align}
+        \left( 1 + \frac{(ik)^\alpha}{\gamma} + o(\gamma^\frac{-2}{\alpha})\right)^{\lfloor \gamma t \rfloor}.
+    \end{align}
+\end{frame}
+
+\begin{frame}{Long Time Limit}
+    \begin{align}
+            \left( 1 + \frac{(ik)^\alpha}{\gamma} + o(\gamma^\frac{-2}{\alpha})\right)^{\lfloor \gamma t \rfloor}
+        \end{align}
+        By taking $ \gamma \lra \infty $ we get that the Fourier transform converges to
+        \begin{align}
+            e^{t(ik)^\alpha}
+        \end{align}
+    and by the LCT this gives us that 
+    \begin{align}
+        \frac{S_{\lfloor \gamma t \rfloor}}{\gamma^\frac{1}{\alpha}} \lra Z_t
+    \end{align}
+    where $ Z_t $ has FT $ \hat{u}(k) = e^{t(ik)^\alpha} $.
+    
+    Notice that this is a stable distribution.
+\end{frame}
+\begin{frame}
+    It is clear that $ \hat{u}(t) = e^{t(ik)^\alpha} $ is a solution to
+    \begin{align}
+        \frac{d\hat{u}}{dt} = (ik)^\alpha \hat{u}.
+    \end{align}
+    Unfortunately we can't use \emph{last week's homework} to invert this FT and this is where we introduce fractional calculus.
+\end{frame}
+
+
+\begin{frame}{Motivations}
+	\begin{block}{Cauchy Formula for Repeated Integration}
+		\begin{align*}
+			\int_{a}^{x} \int_{a}^{y_1} \cdots \int_a^{y_{n-1}} f(y_n) dy_n \cdots dy_2 dy_1 = \frac{1}{(n-1)!} \int_a^x(x-t)^{n-1}f(t)dt
+		\end{align*}
+	\end{block}
+	\pause
+	The idea is to replace the factorials with gamma functions to define an integral of arbitrary order
+	\pause
+	\begin{block}{Riemann-Liouville Fractional Integral}
+		\begin{align*}
+			\rli{a}{\alpha}{f}(x) = \frac{1}{\Gamma(\alpha)} \int_a^x(x-t)^{\alpha-1}f(t)dt
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Motivations (Derivatives)}
+	\begin{block}{Riemann-Liouville Fractional Derivative}
+		\begin{align*}
+			\rld{a}{\alpha}{f}(x) &= \frac{d^{\lceil \alpha \rceil}}{dx^{\lceil \alpha \rceil}} \rli{a}{\lceil \alpha \rceil - \alpha}{f}(x) \\
+				&= \frac{1}{\Gamma(1 - \alpha)}\frac{d^{n}}{dx^n} \int_a^x \frac{f(t)dt}{(x-t)^{\alpha - n + 1}}
+		\end{align*}
+		where $ n = \lfloor \alpha \rfloor + 1 $.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Motivations (Derivatives)}
+	\begin{block}{Caputo Fractional Derivative}
+		\begin{align*}
+			\capder{a}{\alpha}{f}(x) &= \rli{a}{\lceil \alpha \rceil - \alpha}{\frac{d^{\lceil \alpha \rceil}}{dx^{\lceil \alpha \rceil}}f}(x) \\
+				&= \frac{1}{\Gamma(1 - \alpha)} \int_a^x \frac{\frac{d^{t}}{dt^n}f(t)dt}{(x-t)^{\alpha - n + 1}}
+		\end{align*}
+		where $ n = \lfloor \alpha \rfloor + 1 $.
+	\end{block}
+\end{frame}
+\begin{frame}{ Riemann-Liouville vs Caputo Derivative}
+    \begin{itemize}
+	\item The Caputo derivative is often used in fractional differential equations because it
 	can be coupled with integer order initial conditions, whereas often the Riemann-Liouville
 	derivative can't be coupled with integer order initial conditions.
+   
+    \item When we set $ a = -\infty $ for a large class of functions these derivatives are the same.
+    \end{itemize}
+\end{frame}
 
+\begin{frame}{Fractional Derivative Fourier Transform}
+
+	It can be shown that
+	\begin{align}
+	    \mathcal{F}\left\{\prescript{}{-\infty}{\mathcal{D}^\alpha}f(x) \right\} = (ik)^\alpha \mathcal{F}\{ f(x) \}
+    \end{align}
+    and it is precisely this result that we use to \emph{invert} the Fourier transform we had before.
+    That is we can say that
+    \begin{align}
+        \frac{\partial u}{\partial t}(x,t) = \prescript{}{-\infty}{\mathcal{D}^\alpha_x} u(x,t)
+    \end{align}
+    where $u $ is the density of $ Z_t = \lim_{\gamma\lra\infty} \frac{Y_1 + Y_2 + \cdots + Y_{\lfloor \gamma t \rfloor}}{\gamma^\frac{1}{\alpha}} $.
+    
+    It can be shown that $ u(x,t) = Ax^{-\alpha-1} + o(x^{-\alpha-1}) $ as $ x \lra \infty $ with $ A $ depending on $ t $ and $ \alpha $.
 \end{frame}
 
 \begin{frame}{A Quick Note on the Laplace Transform}
