@@ -205,18 +205,18 @@
 \begin{frame}{Long Time Limit}
     \begin{align}
             \left( 1 + \frac{(ik)^\alpha}{\gamma} + o(\gamma^\frac{-2}{\alpha})\right)^{\lfloor \gamma t \rfloor}
-        \end{align}
-        By taking $ \gamma \lra \infty $ we get that the Fourier transform converges to
-        \begin{align}
-            e^{t(ik)^\alpha}
-        \end{align}
+    \end{align}
+    By taking $ \gamma \lra \infty $ we get that the Fourier transform converges to
+    \begin{align}
+        e^{t(ik)^\alpha}
+    \end{align}
     and by the LCT this gives us that 
     \begin{align}
         \frac{S_{\lfloor \gamma t \rfloor}}{\gamma^\frac{1}{\alpha}} \lra Z_t
     \end{align}
     where $ Z_t $ has FT $ \hat{u}(k) = e^{t(ik)^\alpha} $.
     
-    Notice that this is a stable distribution.
+    Notice that this is a stable distribution (check against the definition in the notes).
 \end{frame}
 \begin{frame}
     It is clear that $ \hat{u}(t) = e^{t(ik)^\alpha} $ is a solution to
@@ -298,6 +298,24 @@
         \mathcal{F}^{-1}\{-|k|^\alpha \hat{f}(k) \}(x).
     \end{align}
     The reason one does this is because $ e^{(ik)^\alpha} $ isn't really well defined for non-integer $ \alpha $ and $ k < 0 $. 
+    
+    In the lecture notes we define
+    \begin{align}
+        (ik)^\alpha = |k|^\alpha\left(cos\left(\frac{\alpha\pi}{2}\right) + i\operatorname{sgn}(k)\sin\left(\frac{\alpha\pi}{2}\right)\right)
+    \end{align}
+\end{frame}
+
+\begin{frame}{Generalisation To Higher Dimensions}
+    \begin{itemize}
+    \item It's this definition
+    \begin{align}
+        \mathcal{D}^\alpha f(x) = \mathcal{F}^{-1}\{-||k||^\alpha \hat{f}(k) \}(x)
+    \end{align}
+    which naturally generalises to higher dimensions.
+    
+    \item This allows us to define things like a fractional Laplacian.
+    \item Just like in the \emph{normal} case we can use a change of coordinates to get a Laplacian in other coordinates (say on the surface of a sphere). This gets very complicated very quickly.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{A Plot}
@@ -312,6 +330,7 @@
         \item If we choose the distribution to be the \emph{exponential} distribution we get normal diffusion.
         \item If we choose something different, say the \emph{Mittag-Leffler} distribution, then we can get time-fractional diffusion.
         \item This is where the time derivative is fractional.
+        \item Because we don't run into problems with negative time its actually quite natural to use the RL or Caputo fractional derivatives here. (We work in Laplace space quite often).
     \end{itemize}
 \end{frame}
 	
