@@ -246,7 +246,7 @@
 \begin{frame}{Motivations (Derivatives)}
 	\begin{block}{Riemann-Liouville Fractional Derivative}
 		\begin{align*}
-			\rld{a}{\alpha}{f}(x) &= \frac{d^{\lceil \alpha \rceil}}{dx^{\lceil \alpha \rceil}} \rli{a}{\lceil \alpha \rceil - \alpha}{f}(x) \\
+			\rld{a}{\alpha}{f}(x) &= \frac{d^{n}}{dx^{n}} \rli{a}{n - \alpha}{f}(x) \\
 				&= \frac{1}{\Gamma(1 - \alpha)}\frac{d^{n}}{dx^n} \int_a^x \frac{f(t)dt}{(x-t)^{\alpha - n + 1}}
 		\end{align*}
 		where $ n = \lfloor \alpha \rfloor + 1 $.
@@ -256,8 +256,8 @@
 \begin{frame}{Motivations (Derivatives)}
 	\begin{block}{Caputo Fractional Derivative}
 		\begin{align*}
-			\capder{a}{\alpha}{f}(x) &= \rli{a}{\lceil \alpha \rceil - \alpha}{\frac{d^{\lceil \alpha \rceil}}{dx^{\lceil \alpha \rceil}}f}(x) \\
-				&= \frac{1}{\Gamma(1 - \alpha)} \int_a^x \frac{\frac{d^{t}}{dt^n}f(t)dt}{(x-t)^{\alpha - n + 1}}
+			\capder{a}{\alpha}{f}(x) &= \rli{a}{n - \alpha}{\frac{d^{n}}{dx^{n}}f}(x) \\
+				&= \frac{1}{\Gamma(1 - \alpha)} \int_a^x \frac{\frac{d^{n}}{dt^n}f(t)dt}{(x-t)^{\alpha - n + 1}}
 		\end{align*}
 		where $ n = \lfloor \alpha \rfloor + 1 $.
 	\end{block}
@@ -300,11 +300,16 @@
     The reason one does this is because $ e^{(ik)^\alpha} $ isn't really well defined for non-integer $ \alpha $ and $ k < 0 $. 
 \end{frame}
 
+\begin{frame}{A Plot}
+	\includegraphics[scale=0.3]{stableProcess} 
+\end{frame}
+
+
 \begin{frame}{Time Fractional Diffusion}
     \begin{itemize}
         \item A similar idea can be applied to the \emph{time} between steps. 
         \item This is done by considering something called a continuous time random walk.
-        \item If we choose the distribution to be the \emph{exponential} distribution we get get normal diffusion.
+        \item If we choose the distribution to be the \emph{exponential} distribution we get normal diffusion.
         \item If we choose something different, say the \emph{Mittag-Leffler} distribution, then we can get time-fractional diffusion.
         \item This is where the time derivative is fractional.
     \end{itemize}
@@ -337,8 +342,10 @@
 
 \begin{frame}{Acknowledgement}
     This talk was partly based off ideas outlined in
-    
-    Meerschaert, M. M., \& Sikorskii, A. (2011). Stochastic models for fractional calculus (Vol. 43). Walter de Gruyter.
+    \begin{itemize}
+    \item Meerschaert, M. M., \& Sikorskii, A. (2011). Stochastic models for fractional calculus (Vol. 43). Walter de Gruyter.
+    \item the lecture notes for this course.
+    \end{itemize}
 \end{frame}
 
 \end{document}
